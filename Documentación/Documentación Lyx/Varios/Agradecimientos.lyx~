@@ -1,0 +1,287 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter*
+Agradecimientos
+\end_layout
+
+\begin_layout Standard
+A mi familia
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Mis cuñadas incluidas.
+\end_layout
+
+\end_inset
+
+, que aunque sin llegar a entender del todo de que va mi proyecto no han
+ dejado de preguntar y darme ánimos.
+\end_layout
+
+\begin_layout Standard
+A mis amigos más cercanos, que son los que más me han aguntado hablar y
+ hablar sobre este proyecto.
+\end_layout
+
+\begin_layout Standard
+Al grupo de investigación GENEURA, gracias a los cuales he aprendido y confiado
+ lo suficente en mi como para realizar este proyecto, pues sin su ayuda
+ difícilmente lo podría haber realizado.
+ 
+\end_layout
+
+\begin_layout Standard
+A los compañeros del CEVUG
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Centro de Enseñanzas Virtuales de la Universidad de Granada
+\end_layout
+
+\end_inset
+
+, pues aunque no se han visto implicados directamente en mi proyecto fin
+ de carrera, han aguntado mis mañanas faltas de sueño.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A la OSL
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Oficina de Software Libre de la Universidad de Granada
+\end_layout
+
+\end_inset
+
+, pues gracias a ellos he conseguido conocer e incluso dominar gran parte
+ del software empleado en este proyecto fin de carrera.
+\end_layout
+
+\begin_layout Standard
+A Phil Hassey creador de Galcon y a GOOGLE por crear e incentivar un campeonato
+ como el GOOGLE AI CONTEST.
+\end_layout
+
+\begin_layout Standard
+A todos aquellos que me han aguantado al oír 
+\begin_inset Quotes eld
+\end_inset
+
+
+\shape italic
+¿Has pensado usar un genético?
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Como dice el dicho popular 
+\begin_inset Quotes eld
+\end_inset
+
+Para el del martillo, todos los tornillos son clavos...
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ al contarme un problema computacional.
+\end_layout
+
+\begin_layout Standard
+A mi madre, a David, a José Andres, a JJ Merelo, a Pablo 
+\begin_inset Quotes eld
+\end_inset
+
+Fergu
+\begin_inset Quotes erd
+\end_inset
+
+, a Antonio Mora, a Ana, a Sergio, a Rafa, a Jose María, a Jero, ...
+ en definitiva a todos aquellos que hacen que desee seguir adelante en el
+ difícil camino de la investigación.
+\end_layout
+
+\begin_layout Standard
+Y finalmente a mi padre, que aunque nunca podrá leer estas páginas, seguro
+ que se sentiría orgulloso por ellas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\paragraph_spacing single
+\noindent
+\align right
+
+\shape italic
+\size small
+\begin_inset Quotes eld
+\end_inset
+
+No hay más maestro que el enemigo.
+\end_layout
+
+\begin_layout Quotation
+\paragraph_spacing single
+\noindent
+\align right
+
+\shape italic
+\size small
+Sólo el enemigo te enseña tus puntos débiles.
+\end_layout
+
+\begin_layout Quotation
+\paragraph_spacing single
+\noindent
+\align right
+
+\shape italic
+\size small
+Sólo el enemigo te enseña tus puntos fuertes.
+\end_layout
+
+\begin_layout Quotation
+\paragraph_spacing single
+\noindent
+\align right
+
+\shape italic
+\size small
+Y las únicas reglas del juegoson qué puedes hacerle
+\end_layout
+
+\begin_layout Quotation
+\paragraph_spacing single
+\noindent
+\align right
+
+\shape italic
+\size small
+y qué puedes impedir que te haga.
+\end_layout
+
+\begin_layout Quotation
+\paragraph_spacing single
+\noindent
+\align right
+
+\shape italic
+\size small
+A partir de ahora soy tu enemigo.
+\end_layout
+
+\begin_layout Quotation
+\paragraph_spacing single
+\noindent
+\align right
+
+\shape italic
+\size small
+A partir de ahora soy tu maestro.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\noindent
+\align right
+
+\shape slanted
+\size small
+Mazer Rackham en 
+\series bold
+El juego de Ender
+\series default
+ de Orson Scott Card
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,9 @@
+
+
+for (( i = 1; i '<' 100; i ++ ))
+do
+  java -jar tools/PlayGame-1.2.jar maps/map$i.txt 1000 1000 log.txt  "java -jar Antabot/dist/Antabot.jar" "java -jar example_bots/DualBot.jar" | > log/map$i.txt
+sleep 2
+done
+
+#

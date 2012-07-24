@@ -1,0 +1,372 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Publicaciones
+\end_layout
+
+\begin_layout Section
+Congresos
+\end_layout
+
+\begin_layout Subsection
+Optimizing player behaviour in real-time strategy game using evolutionary
+ algoritgms
+\end_layout
+
+\begin_layout Standard
+Autores: A.Fernández-Ares,A.M.Mora,C.Fernandes,J.J.Merelo.P.García-Sánchez
+\end_layout
+
+\begin_layout Standard
+Universidad: Universidad de Granada
+\end_layout
+
+\begin_layout Standard
+Año: 2011
+\end_layout
+
+\begin_layout Standard
+Publicado: Aceptado en el CEC en el año 2011
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename pub/genebot-cec2011.pdf
+	display false
+	extra LaTeX "pages=-"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Optimizing Strategy Parameters in a Game bot
+\end_layout
+
+\begin_layout Standard
+Autores: A.Fernández-Ares,A.M.Mora,C.Fernandes,J.J.Merelo.P.García-Sánchez
+\end_layout
+
+\begin_layout Standard
+Universidad: Universidad de Granada
+\end_layout
+
+\begin_layout Standard
+Año: 2011
+\end_layout
+
+\begin_layout Standard
+Publicado: Aceptado en el IWANN en el año 2011
+\end_layout
+
+\begin_layout Description
+Abstract: This paper proposes an Evolutionary Algorithm for finetuning the
+ behavior of a bot designed for playing Planet Wars, a game that has been
+ selected for the the Google Arti¯cial Intelligence Challenge 2010.
+ The behavior engine of the proposed bot is based on a set of rules established
+ by means of heuristic experimentation, followed by the application of an
+ evolutionary algorithm to set the constants, weights and probabilities
+ needed by those rules.
+ This bot eventually defeated the baseline bot used to design it in most
+ maps, and eventually played in the Google AI competition, obtaining a ranking
+ in the top 20%.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename pub/genebot-iwann2011.pdf
+	display false
+	extra LaTeX "pages=-"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tratamiento del fitness ruidoso en la optimización evolutiva de bots para
+ el juego Planet Wars
+\end_layout
+
+\begin_layout Standard
+Autores: A.Fernández-Ares,A.M.Mora,C.Fernandes,J.J.Merelo.P.García-Sánchez
+\end_layout
+
+\begin_layout Standard
+Universidad: Universidad de Granada
+\end_layout
+
+\begin_layout Standard
+Año: 2012
+\end_layout
+
+\begin_layout Standard
+Publicado: Aceptado en el MAEB en el año 2012
+\end_layout
+
+\begin_layout Description
+Abstract: Este artículo describe un algoritmo evolutivo (AE) para la optimizació
+n del motor de decisión de un programa (que, en este contexto, se denominará
+ bot) diseñado para jugar al videojuego Planet Wars, en el que dos jugadores
+ se enfrentan en combates por turnos para dominar una serie de planetas
+ contando con sendas flotas de naves.
+ Por tanto, el bot debía saber gestionar sus recursos y tener capacidad
+ de adaptación ante los diferentes campos de batalla estelares 2 posibles
+ rivales.
+ En este trabajo describimos como se han definido un conjunto de reglas
+ que modelaban el comportamiento deseado para el bot, para aplicar posteriorment
+e un algoritmo evolutivo con una serie de parametros de los que dependían
+ las reglas y, por tanto, el comportamiento del bot.
+ Los resultados obtenidos en enfrentamientos entre dicho bot ‘genético’
+ y otros dos (el estándar de Google y uno creado siguiendo reglas fijas)
+ son también analizados, considerando la influencia en los mismos de la
+ naturaleza ruidosa del fitness.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename pub/genebot-maeb2012.pdf
+	display false
+	extra LaTeX "pages=-"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dealing with Noisy Fitness in the Desing of a RTS Game Bot
+\end_layout
+
+\begin_layout Standard
+Autores: A.Fernández-Ares,A.M.Mora,C.Fernandes,J.J.Merelo.P.García-Sánchez
+\end_layout
+
+\begin_layout Standard
+Universidad: Universidad de Granada
+\end_layout
+
+\begin_layout Standard
+Año: 2012
+\end_layout
+
+\begin_layout Standard
+Publicado: Aceptado en el Evo* en el año 2012 y nominado a 
+\series bold
+Best Paper
+\series default
+ en la categoría de EvoGames
+\end_layout
+
+\begin_layout Description
+Abstract: This work describes an evolutionary algorithm (EA) for evolving
+ the constants, weights and probabilities of a rule-based decision engine
+ of a bot designed to play the Planet Wars game.
+ The evaluation of the individuals is based on the result of some non-determinis
+tic combats, whose outcome depends on random draws as well as the enemy
+ action, and is thus noisy.
+ This noisy fitness is addressed in the EA and then, its effects are deeply
+ analysed in the experimental section.
+ The conclusions shows that reducing randomness via repeated combats and
+ re-evaluations reduces the effect of the noisy fitness, making then the
+ EA an effective approach for solving the problem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename pub/genebot-evo2012.pdf
+	display false
+	extra LaTeX "pages=-"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Adaptive bots for real-time strategy games via map characterization
+\end_layout
+
+\begin_layout Standard
+Autores: A.Fernández-Ares,A.M.Mora,C.Fernandes,J.J.Merelo.P.García-Sánchez
+\end_layout
+
+\begin_layout Standard
+Universidad: Universidad de Granada
+\end_layout
+
+\begin_layout Standard
+Año: 2012
+\end_layout
+
+\begin_layout Standard
+Publicado: Aceptado en el Evo* en el año 2012 y nominado a 
+\series bold
+Best Paper
+\series default
+ en la categoría de EvoGames
+\end_layout
+
+\begin_layout Description
+Abstract: This paper presents a proposal for a fast on-line map analysis
+ for the RTS game Planet Wars in order to define specialized strategies
+ for an autonomous bot.
+ This analysis is used to tackle two constraints of the game, as featured
+ in the Google AI Challenge 2010: the players cannot store any information
+ from turn to turn, and there is a limited action time of just one second.
+ They imply that the bot must analyze the game map quickly, to adapt its
+ strategy during the game.
+ Building in our previous work, which evolved bots for this game, in this
+ paper we have evolved bots for different types of maps, and make the bot
+ turn into one or the other in each turn depending on the geographical configura
+tion of the game.
+ Several experiments have been conducted to test the new approach, which
+ outperforms our previous version, based on an off-line general training.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename pub/ex-genebot-cig2012.pdf
+	display false
+	extra LaTeX "pages=-"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Artículos en revista
+\end_layout
+
+\begin_layout Subsection
+Effect of noisy fitness in RTS Player Behaviour Optimisation Using Evolutionary
+ Algorithms
+\end_layout
+
+\begin_layout Standard
+Autores: A.Fernández-Ares,A.M.Mora,C.Fernandes,J.J.Merelo.P.García-Sánchez
+\end_layout
+
+\begin_layout Standard
+Universidad: Universidad de Granada
+\end_layout
+
+\begin_layout Standard
+Año: 2012
+\end_layout
+
+\begin_layout Standard
+Publicado: Artículo de revista en JCST en el año 2012
+\end_layout
+
+\begin_layout Description
+Abstract: This paper describes an Evolutionary Algorithm (EA) for evolving
+ the decision engine of a program (which, in this context, is called bot)
+ designed to play the Planet Wars game.
+ This game, which was chosen for the Google Artificial Intelligence Challenge
+ in 2010, requires the bot to deal with multiple target planets, while achieving
+ a certain degree of adaptability in order to defeat different opponents
+ in different scenarios.
+ The decision engine of the bot is based on a set of rules that have been
+ defined after an empirical study.
+ A Genetic Algorithm (GA) is then used for tuning the set of constants,
+ weights and probabilities that define the rules, and, therefore, the general
+ behaviour of the bot.
+ This paper describes the GA and analyses in depth the results obtained
+ by the bot using the evolved decision engine when competing with other
+ bots, which include a bot offered by Google as a sparring partner, and
+ a scripted bot.
+ The evaluation of the individuals is based on the result of some non-determinis
+tic combats, whose outcome depends on random draws as well as the enemy
+ action, and is thus noisy.
+ This noisy fitness is addressed in the GA and its effects are then analysed
+ in depth in the experimental section.
+ From these experiments we conclude that tackling randomness via repeated
+ combats and reevaluations reduces the effect of the noisy fitness and makes
+ the GA a highly valuable approach for solving this problem.
+ The described bot defeated the baseline bot in most game environments and
+ obtained a ranking position in top-30% of the Google Artificial Intelligence
+ competition.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename pub/genebot-jcst2012.pdf
+	display false
+	extra LaTeX "pages=-"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

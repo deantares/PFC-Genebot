@@ -1,0 +1,1973 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Genebot
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+minitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este capítulo se describe el método seguido para la evolución (optimización)
+ del bot mediante un algoritmo genético y los estudios realizados con el
+ fin de justificar la bondad del método para conseguir bot.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introducción 
+\end_layout
+
+\begin_layout Standard
+Comenzamos con una advertencia.
+ Este es el capítulo más largo y denso del proyecto fin de carrera, pues
+ es en este capítulo en el que se abordará el algoritmo genético empleado
+ para la obtención del denominado Genebot
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+De igual manera que con AresBot, el nombre es fruto de un 
+\begin_inset Quotes eld
+\end_inset
+
+juego de palabras
+\begin_inset Quotes erd
+\end_inset
+
+ con Gene (contración de genético) y bot.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En primer lugar se definirá qué es un algoritmo genético y se introducirá
+ vocabulario y terminología necesarios para poder comprender las siguientes
+ secciones.
+ 
+\end_layout
+
+\begin_layout Standard
+Dado que muchos de los aspectos relacionados con el algoritmo genético fueron
+ optimizados y re-diseñado a medida que se realizaban los estudios sobre
+ el mismo, en este capítulo se presentará tanto el algoritmo genético original
+ como el algoritmo genético finalmente utilizado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Algoritmos genéticos
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Algoritmos-genéticos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+¿Qué es un algoritmo genético?
+\end_layout
+
+\begin_layout Standard
+Un Algoritmo Genético (a partir de ahora GA
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Genetic Algorith, en inglés.
+\end_layout
+
+\end_inset
+
+) es un tipo de Algoritmo Evolutivo (a partir de ahora EA
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Evolutionary Algorithm, en inglés
+\end_layout
+
+\end_inset
+
+) y constituye un método sistemático para la resolución de problemas de
+ búsqueda y optimización, aplicando para ellos los métodos de la propia
+ evolución biológica
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Selección basada en la población, reproducción sexual y mutación.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A continuación se definiran los aspectos comunes y básicos que constituyen
+ un algoritmo genético.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Fenotipo, población e individuo
+\end_layout
+
+\begin_layout Standard
+Podemos decir que un GA evoluciona un conjunto de posibles soluciones candidatas
+ de un problema.
+ A este conjunto de soluciones posibles para el problema abordado lo denominamos
+ 
+\series bold
+fenotipo
+\series default
+.
+ Como dicho fenotipo puede no ser finito computacionalmente hablando, un
+ GA trabaja con un conjunto finito del fenotipo denominado 
+\series bold
+población
+\series default
+, compuesto a su vez por 
+\series bold
+individuos
+\series default
+ siendo estos
+\series bold
+ 
+\series default
+una solución individual y única del fenotipo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename AGO_fenotipo.png
+	scale 80
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename AGO_población.png
+	scale 80
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename AGO_individuo.png
+	scale 80
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ejemplos de fenotipo 
+\series bold
+(a)
+\series default
+, población 
+\series bold
+(b)
+\series default
+ e individuo 
+\series bold
+(c)
+\series default
+ de un problema simple.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Cromosomas, genes y alelos
+\end_layout
+
+\begin_layout Standard
+Hemos indicado que un individuo es una solución individual y única del fenotipo.
+ Sin embargo, necesitamos encontrar una manera de reflejar la información
+ de esta solución.
+ En los GA entendemos que un individuo es una codificación de la información
+ de la solución representada mediante una cadena
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Array o vector, si se prefiere un término más común en ciencias de la computació
+n.
+\end_layout
+
+\end_inset
+
+ de elementos denominada 
+\series bold
+cromosoma.
+ 
+\end_layout
+
+\begin_layout Standard
+Cada uno de los valores o elementos de un cromosoma se denomina 
+\series bold
+gen 
+\series default
+y a cada valor individual de un gen concreto (por definición, en una posición
+ determinada del cromosoma) se denomina 
+\series bold
+alelo
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Los alelos en la versión más clásica de GA son binarios
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Lo que implica que un gen puede ser tomado o no, es decir, tomar valores
+ 1 o 0.
+\end_layout
+
+\end_inset
+
+ aunque existe flexibilidad en la codificación, pudiendo emplearse alelos
+ enteros, reales, cadenas, objetos, etc en función de las necesidades de
+ representación de nuestro problema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename AGO_cromosoma_gen_alelo.png
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+La cadena 
+\begin_inset Quotes eld
+\end_inset
+
+001
+\begin_inset Quotes erd
+\end_inset
+
+ es el cromosoma, 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Generaciones
+\end_layout
+
+\begin_layout Standard
+El objetivo de la evolución es conseguir optimizar (ya sea en un ámbito
+ local o global del espacio del búsqueda del problema) la población.
+ Para ello, se realizan recombinaciones de las partes de los individuos
+ (su cromosoma, y por definición sus genes) dando lugar a una nueva población,
+ que será sometida nuevamente al proceso de evolución.
+ 
+\end_layout
+
+\begin_layout Standard
+Cada una de las iteraciones o transiciones entre población y evolución de
+ la misma se denomina 
+\series bold
+generación
+\series default
+.
+ Así un algoritmo genético parte de una generación inicial evolucionándola
+ mediante el paso de generaciones.
+\end_layout
+
+\begin_layout Standard
+En principio el número de generaciones de un algoritmo se suele limitar
+ hasta un máximo (por ejemplo, 100 generaciones) o hasta alcanzar una solución
+ (encontrar un individuo) que nos satisfaga.
+ Veremos a continuación, como podemos cualificar que un individuo (y por
+ tanto la solución que codifica) es mejor que otro individuo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename AGO_generacion.png
+	scale 80
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sucesión de generaciones en una población
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Selección y evaluación
+\end_layout
+
+\begin_layout Standard
+¿Cómo podemos garantizar que la evolución de nuestra población en general
+ y de un nuevo individuo en particular tiene como objetivo optimizar y encontrar
+ las mejores soluciones del fenotipo? Esto se consigue debido a que se garantiza
+ que las mejores partes de los cromosomas se difunden entre la población
+ mediante un mecanismo de 
+\series bold
+selección
+\series default
+ que favorece a las mejores individuos, es decir, a las mejores soluciones.
+\end_layout
+
+\begin_layout Standard
+Por tanto, podemos preguntarnos ¿cómo podemos saber que un individuo (una
+ solución) es mejor que otra? La cualidad de un individuo solución es evaluada
+ computacionalmente.
+ Durante esta evaluación se decodica cada gen del cromosoma, convirtiéndose
+ en una serie de parámetros del problema dado, se haya la solución al problema
+ en función de esos parámetros y se le asignatura una puntuación en función
+ de lo cerca que haya quedado de la mejor solución posibe.
+ A esta puntuación que se asigna a una evaluación de un individuo se le
+ denomina 
+\series bold
+fitness
+\series default
+.
+ Es este fitness el que determina que cromosomas van a reproducirse y cuales
+ se van a 
+\begin_inset Quotes eld
+\end_inset
+
+perder
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename AGO_fitness.png
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Cada individuo es evaluado obteniendo un valor fitness.
+ En este caso, por ejemplo, podemos suponer que 
+\begin_inset Quotes eld
+\end_inset
+
+menos es mejor
+\begin_inset Quotes erd
+\end_inset
+
+ ya que el problema es de minimización o de costes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Cruce
+\end_layout
+
+\begin_layout Standard
+Cabe preguntarnos cómo como se produce este proceso mediante el cual los
+ individuos de una población dan lugar a una nueva población, en el marco
+ de este proceso de evolución que estamos explicado.
+ Esta nueva población a la que hacemos referencia, es generada mediante
+ la recombinación de los gentes de un par de 
+\series bold
+padres
+\series default
+ de la población de la generación anterior.
+ Por tanto, un individuo 
+\begin_inset Quotes eld
+\end_inset
+
+nace
+\begin_inset Quotes erd
+\end_inset
+
+ por la intervención de dos individuos cuya combinación de cromosomas dan
+ lugar al cromosoma de dicho nuevo individuo.
+ Esta acción de combinación de un par de cromosomas para la obtención de
+ un nuevo cromosoma se denomina 
+\series bold
+operador de cruce
+\series default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+No entraremos en detalle de la gran diversidad de operadores de cruces existente
+ en la bibliografía de los GA.
+ Más adelante en este capítulo, expondremos el operador de cruce empleado
+ para nuestro GA, y las decisiones que nos llevaron a elegirlo frente a
+ otras alternativas.
+\end_layout
+
+\end_inset
+
+.
+ El mecanismo de selección es intríseco para este operador de cruce pues
+ es mediante este mecanismo de selección mediante el cual se establece que
+ pares de individuos van a relacionarse
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Nuevamente, no entraremos en detalle de la gran diversidad de mecanismos
+ de selección propuesto en los GA.
+ Más adelante en este capítulo, expondremos el mecanismo de selección empleado
+ para nuestro GA, y las decisiones que nos llevaron a elegirlo frente otros.
+\end_layout
+
+\end_inset
+
+.
+ Es posible definir una probabilidad de cruce, para que dos padres no lleguen
+ a aparearse.
+ Este mecanismo permite realizar 
+\begin_inset Quotes eld
+\end_inset
+
+copias
+\begin_inset Quotes erd
+\end_inset
+
+ de los individuos, con el fin de intentar preservar los mejores individuos
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Más adelante, hablaremos de otros métodos para favorecer el presevar los
+ mejores individuos en nuestro algoritmo genético.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename AGO_cruce.png
+	scale 80
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ejemplo de operación de cruce.
+ Dos individuos generan dos nuevos individuos.
+ Este es el tipo más usual de operador de cruce en algoritmos genéticos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Mutación
+\end_layout
+
+\begin_layout Standard
+Por último, vamos a introducir un aspecto de los GA que aporta diversidad
+ a la evolución de las poblaciones.
+ Cualquier operación de cruce biológica está supeditada a la posibilidad
+ de errores en el proceso de copia.
+ Este mecanismo biológico se materializa en los GA mediante la 
+\series bold
+mutación
+\series default
+, que cambia aleatoriamente el valor de un alelo en el proceso de cruce.
+ Sin embargo, esta mutación debe tener una probabilidad de ocurrencia muy
+ baja, pues su fin es el de añadir diversidad a la población, incorporando
+ nuevos individuos del fenotipo que de otra forma no pudiesen ser generados
+ por la evolución de las poblaciones antiguas.
+ Como hemos visto, la mutación opera a nivel de gen lo que permite que sea
+ posible que en un mismo cruce, dos genes del nuevo indivudo sufran mutación
+ (aunque la probabilidad de que dicho hecho ocurra sea ínfima).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename AGO_mutacion.png
+	scale 80
+	BoundingBox 0bp 0bp 708bp 95bp
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ejemplo de mutación.
+ Se produce un cruce pero en el gen 
+\begin_inset Quotes eld
+\end_inset
+
+más oscuro
+\begin_inset Quotes erd
+\end_inset
+
+ se produce una mutación.
+ Este es el tipo más usual de mutación en los algoritmos genéticos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+¿Cómo funciona un algoritmo genético?
+\end_layout
+
+\begin_layout Standard
+Un algoritmo genético suele mostrar un funcionamiento similar al mostrado
+ en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-flujo-algoritmo-genetico-simple"
+
+\end_inset
+
+.
+ En primer lugar se genera una población inicial
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+De igual manera que con el resto de aspectos de los algoritmos genéticos,
+ existen multitud de técnicas para la generación de la población inicial.
+ Más adelante indicaremos como se genera la población inicial en nuestro
+ algoritmo genético y las técnicas que barajamos para ello.
+\end_layout
+
+\end_inset
+
+ que es evaluada de acuerdo a la función fitness.
+ Un grupo de 
+\begin_inset Quotes eld
+\end_inset
+
+padres
+\begin_inset Quotes erd
+\end_inset
+
+ es seleccionado mediante un método que garantice que los mejores individuos
+ tienen más posibilidades de entrar en el grupo.
+ Se crea una nueva población, generada mediante la recombinación de los
+ genes de los padres para dar lugar a un nuevo individuo.
+ Dicha recombinación es susceptible de ser afectada por la mutación de cualquier
+a de sus genes, cambiando el valor de su alelo.
+\end_layout
+
+\begin_layout Standard
+La nueva población se evalua, obtienendo su fitness.
+ Finalmente la vieja población se ve reemplazada por la nueva población,
+ y se somete nuevamente al proceso de selección y cruce (con mutación)\SpecialChar \@.
+ Este
+ proceso iterativo se sucede hasta que no se alcance una condición de parada
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Igualmente al resto del algoritmo, existe una gran cantidad de condiciones
+ de parada que pueden ser aplicados.
+ Por ejemplo se puede establecer un número de generaciones máximo o detenerse
+ al encontrar un individuo con un fitness mejor que uno establecido.
+\end_layout
+
+\end_inset
+
+.
+ Entonces, el mejor individuo de la población es considerado como la mejor
+ solución (encontrada) para el problema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Inicializar la población(P)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+WHILE {No se alcanza la condición de parada}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+STATE Seleccionar P' individuos de P
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+STATE Recombinar individuos de P' para generar una nueva población O
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+STATE Mutación de individuos de O
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+STATE Evaluación de la población O
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+STATE Reemplazar todo (o algunos) individuos en P por los de O
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDWHILE
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pseudo-código simplificado de un algoritmo genético clásico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Algoritmo_genéticos_esquema.png
+	scale 80
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-flujo-algoritmo-genetico-simple"
+
+\end_inset
+
+Diagrama de flujo de un algoritmo genético típico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Propuesta inicial 
+\end_layout
+
+\begin_layout Standard
+Cómo hemos visto en la sección anterior, un algoritmo genético está compuesto
+ de varias partes.
+ Así pues, para poder utilizar un GA para la resolución de un problema concreto,
+ necesitamos definir antes cada una de esas partes en el ámbito de nuestro
+ problema.
+ Por tanto, al igual que en la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Algoritmos-genéticos"
+
+\end_inset
+
+ hemos realizado un repaso por las partes de una GA, en esta sección definiremos
+ las partes de nuestro algoritmo genético para el problema de optimización
+ que nos ocupa, la optimización de nuestro BOT: Genebot.
+\end_layout
+
+\begin_layout Subsection
+Componentes del algoritmo genético inicial
+\end_layout
+
+\begin_layout Subsubsection
+Cromosomas, genes y alelos
+\end_layout
+
+\begin_layout Standard
+Comenzamos definiendo la estructura básica que va a constituir nuestro algoritmo
+ genético: los cromosomas.
+ Cómo hemos comentado en apartado anterior, hemos concebido a GENEBOT como
+ una versión de ARESBOT en el que los parámetros que lo definen pueden ser
+ indicados externamente.
+ En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:diagrama_genebot"
+
+\end_inset
+
+ podemos observar como el comportamiento de Genebot se ve afectado por los
+ parámetros que se le indiquen, siendo estos valores proporcionados como
+ parametros (valga la rebundancia) del algoritmo.
+ Esto nos permite que, sin tener que volver a compilar o implementar nuevamente
+ el programa, genebot pueda adaptar su comportamiento de la forma que hemos
+ descrito en el capítulo anterior.
+ 
+\end_layout
+
+\begin_layout Standard
+Podemos entender por tanto, GENEBOT como una 
+\begin_inset Quotes eld
+\end_inset
+
+caja negra
+\begin_inset Quotes erd
+\end_inset
+
+ configurable, a la que además del estado del juego podemos proporcionarle
+ los valores de comportamiento.
+ Recordamos estos 7 valores definidos en el capítulo anterior:
+\end_layout
+
+\begin_layout Description
+p_diezmo 
+\begin_inset Formula $\in\mathds{R}\left[0,1\right]$
+\end_inset
+
+ interpretado como: la probabilidad de acontecimiento del diezmo 
+\end_layout
+
+\begin_layout Description
+%_diezmo 
+\begin_inset Formula $\in\mathds{R}\left[0,1\right]$
+\end_inset
+
+ interpretado como: el porcentaje de naves que se envían a la base mediante
+ el diezmo
+\end_layout
+
+\begin_layout Description
+ωs 
+\begin_inset Formula $\in\mathds{R}\left[0,1\right]$
+\end_inset
+
+ interpretado como: el peso del sacrificio en la función de estimación de
+ riesgo de un candidato a planeta objetivo.
+\end_layout
+
+\begin_layout Description
+ωb 
+\begin_inset Formula $\in\mathds{R}\left[0,1\right]$
+\end_inset
+
+ interpretado como: el peso del beneficio en la función de estimación de
+ riesgo de un candidato a planeta objetivo.
+\end_layout
+
+\begin_layout Description
+navesExtras 
+\begin_inset Formula $\in\mathds{R}\left[0,1\right]$
+\end_inset
+
+ interpretado como: el número de naves extras enviadas en cada ataque desde
+ la base.
+\end_layout
+
+\begin_layout Description
+p_ataqueColonias 
+\begin_inset Formula $\in\mathds{R}\left[0,1\right]$
+\end_inset
+
+ interpretado como: la probabilidad de acontecimiento del ataque desde las
+ colonias más cercanas al objetivo.
+\end_layout
+
+\begin_layout Description
+%_ataqueColonias 
+\begin_inset Formula $\in\mathds{R}\left[0,1\right]$
+\end_inset
+
+ interpretado como: el porcentaje de naves que se envían en el ataque desde
+ las colonias más cercanas al objetivo.
+\end_layout
+
+\begin_layout Standard
+Estos valores como podemos observar están normalizados, para poder tomar
+ únicamente valores comprendidos entre el 0 y el 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename esquema_pesos.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionof{figure}[Diagrama de comportamiento de Aresbot]{Diagrama de comportamie
+nto de Aresbot, con los parámetros extraidos fuera del flujo y proporcionados
+ como si fuesen un parámetro más del algoritmo.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:diagrama_genebot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Individuo
+\end_layout
+
+\begin_layout Standard
+Hemos definido un individuo como la codificación de las características
+ de nuestro bot.
+ En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distintas-formas-representar-genebot"
+
+\end_inset
+
+ se defininen varias maneras de anotar a un individuo (una solución del
+ problema) de las que haremos uso en este trabajo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Formula $Genebot\left\{ \begin{array}{ccccccc}
+0,5 & 0,5 & 0,2 & 0,5 & 0,5 & 0,5 & 0,75\end{array}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename genebot_ejemplo_1.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename genebot_ejemplo_2.png
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Distintas formas de notar un individuo Genebot
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Distintas-formas-representar-genebot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Fenotipo y población
+\end_layout
+
+\begin_layout Standard
+Una vez definido que es un individuo en nuestro GA y como lo representamos
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+La representación es importante para poder distinguir unos individuos de
+ otros.
+\end_layout
+
+\end_inset
+
+ podemos definir la población que emplearemos como el número de bots que
+ evolucionaremos simultáneamente.
+ En nuestra primera aproximación del algoritmo genético, utilizamos una
+ población de 400 individuos.
+\end_layout
+
+\begin_layout Standard
+Por último, queda definir el fenotipo de nuestro problema, que estaría constitui
+do por todo el conjunto de bots conseguibles cambiando los parámetros de
+ entrada de GENEBOT sin tener en cuenta el estado del mapa.
+ Dado el carácter infinito de los alelos, nuestro fenotipo es igualmente
+ infinito
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Más adelante entraremos en discusión sobre como esta, y otras muchas caracterisi
+tcas del problema, hacen que sea adecuado el uso de un GA para su resolución.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Generaciones
+\end_layout
+
+\begin_layout Standard
+Hemos definido el número de generaciones como la cantidad de iteraciones
+ del proceso evolutivo.
+ En nuestra primera aproximación del algoritmo genético y por motivos que
+ discutiremos más adelante (sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Estudio-de-rendimiento"
+
+\end_inset
+
+) solo se pudo hacer un número poco significativo de ejecuciones
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Principalmente por el coste computacional del algoritmo genético, como se
+ estudiará más adelante.
+\end_layout
+
+\end_inset
+
+ llegándose a completar únicamente 14 generaciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Evaluación
+\end_layout
+
+\begin_layout Standard
+Como veremos en las próximas secciones de este capítulo, una de las decisiones
+ más peliguadas a la hora de componen nuestro algoritmo genético fue la
+ elección de la función de fitness, es decir, aquella función que asignase
+ un valor numérico a la bondad de nuestro solución.
+ En definitiva, teníamos que encontrar una manera de cuantificar como de
+ bueno resultaba nuestro bot.
+\end_layout
+
+\begin_layout Standard
+En primer lugar se estableció un conjunto de mapas que nos sirviese de conjunto
+ de pruebas.
+ En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Mapas-fitness-genebot"
+
+\end_inset
+
+ se puede observar el conjunto de mapas empleado para la evaluación del
+ bot.
+ Se ha intentado que el espectro de mapas utilizado se muy variado, con
+ el fin de evaluar el bot en la mayor cantidad de situaciones posibles
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Veremos que esta filosofia nos dará pie al capítulo
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:ExGenebot"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ entiendo como situación la tipología del mapa de enfrentamiento.
+\end_layout
+
+\begin_layout Standard
+Tenemos por tanto un conjunto de 5 mapas en los que vamos a enfrentar al
+ bot de genebot.
+ Necesitamos elegir un adversario contra el que enfrentarlo.
+ En la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:GoogleBot"
+
+\end_inset
+
+ hemos presentado a GoogleBot, un bot generalista y con buenos resultados
+ independientemente del mapa.
+ Por tanto, decidimos emplear GoogleBot como adversario para nuestra función
+ de fitness.
+\end_layout
+
+\begin_layout Standard
+Ya tenemos decidido que nuestra evaluación sobre un genebot se va a realizar
+ enfrentándole contra GoogleBot en 5 escenarios distintos.
+ La primera aproximación que podemos tener sobre la función de fitness es
+ que un bot que gane en todos los mapas será mejor que un bot que pierda
+ en uno o más mapas.
+ Podíamos pensar que un buen fitness podría ser el número de victorias que
+ obtuviese, sin embargo una gran cantidad de individuos del fenotipo consiguen
+ vencer en todos los mapas, así que se hacía necesario añadir otra medida
+ más con la que poder cuantificar que individuos eran mejores.
+\end_layout
+
+\begin_layout Standard
+Se decide emplear
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Acertadamente, según demostraremos en los estudios de consistencia y estabilidad
+ del fitness más adelante.
+\end_layout
+
+\end_inset
+
+ el número de turnos que ha necesitado el individuo para ganar (o perder)
+ como una buena medida de lo bueno o malo que ha sido el individuo en el
+ enfrentamiento.
+ Así pues, si un individuo gana muy rápidamente resulta lógico pensar que
+ ese individuo es mejor que otro que ha necesitado mayor cantidad de turnos
+ para conseguir su victoria.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+Por tanto, nuestra función de fitness viene definida como:
+\end_layout
+
+\begin_layout Plain Layout
+Sean 
+\begin_inset Formula $G1$
+\end_inset
+
+ y 
+\begin_inset Formula $G2$
+\end_inset
+
+ individuos del fenotipo.
+ Se define la función con 
+\begin_inset Formula $gana(Gx)$
+\end_inset
+
+ como una función booleana que es verdadera si el individuo ha ganado todos
+ sus enfrentamientos y falsa en caso contraria.
+ Se define también la función 
+\begin_inset Formula $turnos(Gx)$
+\end_inset
+
+ como la suma de turnos empleados en todos los enfrentamientos.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Definimos la función 
+\begin_inset Formula $fitness(G1,G2)$
+\end_inset
+
+ que nos indica cual de los dos individuos 
+\begin_inset Formula $G1$
+\end_inset
+
+ y 
+\begin_inset Formula $G2$
+\end_inset
+
+ es mejor como:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $fitness(G1,G2)\begin{cases}
+Si\, gana(G1)\neq gana(G2) & \begin{cases}
+Si\, gana(G1)=1 & \rightarrow G1\\
+Si\, gana(G2)=1 & \rightarrow G2
+\end{cases}\\
+Si\, gana(G1)=gana(G2) & \begin{cases}
+Si\, turnos(G1)<turnos(G2) & \rightarrow G1\\
+Si\, turnos(G1)>turnos(G2) & \rightarrow G2\\
+Si\, turnos(G1)=turnos(G2) & \rightarrow0
+\end{cases}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En caso de que los dos individuos 
+\begin_inset Formula $G1$
+\end_inset
+
+ y 
+\begin_inset Formula $G2$
+\end_inset
+
+ tuviesen el mismo número de turnos e iguales condiciones de victoria, se
+ diría que ambos individuos son iguales.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename mapas/map7.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapa 7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename mapas/map11.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapa 11
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename mapas/map26.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapa 26
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename mapas/map69.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapa 69
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename mapas/map76.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapa 76
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapas del conjunto de evaluación del fitness de Genebot
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Mapas-fitness-genebot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Selección
+\end_layout
+
+\begin_layout Subsubsection
+Cruce
+\end_layout
+
+\begin_layout Subsubsection
+Mutación
+\end_layout
+
+\begin_layout Subsubsection
+Otras configuraciones
+\end_layout
+
+\begin_layout Subsection
+Resumen de componentes y características del GA
+\end_layout
+
+\begin_layout Subsection
+Resultados y experimentos
+\end_layout
+
+\begin_layout Section
+Estudio del ruido
+\end_layout
+
+\begin_layout Subsection
+Estudio de estabilidad
+\end_layout
+
+\begin_layout Section
+Estudio de consistencia
+\end_layout
+
+\begin_layout Section
+Estudio de rendimiento
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Estudio-de-rendimiento"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Algoritmo paralelo
+\end_layout
+
+\begin_layout Section
+Algorito Genético final
+\end_layout
+
+\begin_layout Section
+Experimentos
+\end_layout
+
+\begin_layout Section
+Conclusiones
+\end_layout
+
+\end_body
+\end_document

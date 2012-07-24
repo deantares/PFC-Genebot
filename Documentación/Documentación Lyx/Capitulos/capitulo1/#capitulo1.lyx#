@@ -1,0 +1,352 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+
+\lang english
+Motivación
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+minitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este capítulo se describe la motivación del proyecto, la finalidad y
+ objetivo que se pretenden lograr con él así como las decisiones y circustancias
+ que han llevado a su elección.
+\end_layout
+
+\begin_layout Section
+Tipo de proyecto
+\end_layout
+
+\begin_layout Standard
+Los proyecto informáticos suelen englobarse en varias categorías dependiendo
+ de la finalidad y del campo del mismo.
+ Así son usuales los proyectos basados en desarrollos
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+No solo de software o hardware, sino también de procesos, métodos o algoritmos.
+\end_layout
+
+\end_inset
+
+, basados en evaluaciones 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Proyectos que incluyen la evaluación de diferentes perspectivas de enfoque
+ de un mismo problema.
+\end_layout
+
+\end_inset
+
+ o proyectos que buscan resolver un problema concreto
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Aplicando una técnica ya existente para resolver un problema diferente
+\end_layout
+
+\end_inset
+
+.
+ Menos usuales en nuestro país son los proyectos en colaboración con empresas
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+resolviendo un problema definido dentro de una organización externa.
+\end_layout
+
+\end_inset
+
+.
+ Por ultimo, se puede encontrar proyectos basados en la investigación.
+\end_layout
+
+\begin_layout Standard
+Este proyecto fin de carrera está elaborado atendiendo a este último tipo
+ de proyecto fin de carrera.
+ No por ello, han dejado de desarrollarse software o de hacer uso de algoritmos
+ y métodos aplicados para la resolución de un problema desde una perspectiva
+ diferente, y tampoco esta exento de evaluaciones para lograr optimizar
+ las soluciones encontradas.
+\end_layout
+
+\begin_layout Standard
+Sin embargo, declarar que el proyecto está orientado a un proyecto de investigac
+ión implica aceptar que se ha realizado un análisis cuidadoso de un área
+ particular, que se ha intentado mejorar la comprensión de esta área, y
+ que se ha realizado una búsqueda para indentificar los puntos fuertes y
+ débiles del campo estudiado.
+ 
+\end_layout
+
+\begin_layout Section
+Originalidad
+\end_layout
+
+\begin_layout Standard
+Partimos de la base que no tiene ningún mérito repetir el trabajo de otros
+ o descubrir y producir algo que ya sobradamente conocido.
+ La originalidad entendida de forma muy simple, es producir o hacer algo
+ que no se ha hecho con anterioridad.
+ Decir que algo es original supone tener un conocimiento profundo de todo
+ lo publicado hasta el momento en un determinado campo del conocimiento,
+ lo cual dista mucho de ser fácil.
+\end_layout
+
+\begin_layout Standard
+Sin embargo, podemos intentar enfocar nuestro proyecto fin de carrera de
+ manera original, por ejemplo mediante el uso de técnicas y métodos muy
+ conocidos pero aplicados a problemas nuevos.
+ En este caso, el éxito del trabajo no dependerá de la innovación en ese
+ campo concreto y conocido, sino del enfoque novedoso que le ha sido dado
+ al problema.
+\end_layout
+
+\begin_layout Standard
+Así pues, este proyecto fin de carrera no versa solo sobre la aplicación
+ de un algoritmo genético a un problema dado, sino que se ha intentado encontrar
+ nuevos puntos de vista e interpretaciones de los algoritmos genéticos aplicados
+ a un campo concreto, el diseño de bots para juegos de estrategia en tiempo
+ real.
+ Así pues, en este proyecto no se intenta sólamente resolver un problema
+ concreto, sino que se intenta profundicar y extraer conclusiones de la
+ aplicación de unas técnicas muy investigadas como son los algoritmos géneticos,
+ en un campo de aplicación muy determinado y con bastante potencial.
+\end_layout
+
+\begin_layout Section
+Objectivo
+\end_layout
+
+\begin_layout Standard
+Como se ha podido constatar anteriormente, en este proyecto fin de carrera,
+ no solo se pretende diseñar el bot para un juego en concreto, sino que
+ se ha plantado como un aprendizaje para poder conocer y saber como realizar
+ correctamente un bot para juegos en estrategia en tiempo real usando algoritmos
+ genéticos.
+\end_layout
+
+\begin_layout Standard
+De esta manera, el fin y objetivo máxime de este proyecto fin de carrera
+ no es tanto el diseño del bot en si, sino el camino recorrido hasta llegar
+ a ese buen diseño.
+ En pocas palabras, lo trascendente de este proyecto no es tanto la solución
+ a la que se llega, sino aquellos aspectos, estudios, decisiones, experimentos
+ y evaluaciones que nos ha llevado a ella.
+\end_layout
+
+\begin_layout Section
+Decisión de la temática del proyecto
+\end_layout
+
+\begin_layout Subsection
+Beca de Iniciación a la investigación
+\end_layout
+
+\begin_layout Standard
+Durante el año 2010 tuve oportunidad de disfrutar de una beca de inicación
+ a la investigación gracias a la cual tuve el privilegio de poder aprender
+ y adquirir bastante conocimiento sobre Algoritmos Bioinspirados.
+ Gracias a esta beca pude descrubir los enfoques evolutivos para la resolución
+ de problemas, así como gran cantidad de otros enfoques bioinsiprados como
+ algoritmos de colonias de hormigas, de abejas, nubes de partículas, redes
+ neuronales,...
+\end_layout
+
+\begin_layout Standard
+Y no solo enfoques, sino también ámbitos de problemas como el juego de la
+ vida o mastermind; y distintas técnicas para la comunicación y paralelización
+ de los algoritmos como por SOAP o P2P.
+\end_layout
+
+\begin_layout Standard
+De entre todos los campos y áreas del conocimiento que pude descubrir gracias
+ a la beca de iniciación a la investigación, sentí especial predilección
+ por los algoritmos genéticos.
+ La idea de dar a una 
+\begin_inset Quotes eld
+\end_inset
+
+solución cualquiera
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Es posible, que la 
+\begin_inset Quotes eld
+\end_inset
+
+solución
+\begin_inset Quotes erd
+\end_inset
+
+ ni tan siquiera sea solución al problema.
+\end_layout
+
+\end_inset
+
+ de un problema, la posibilidad latente de ser capaz de resolver ese problema
+ y usando técnicas inspiradas en la evolución biológica y en su base genético-mo
+lecular, ser capaz de tornar esa 
+\begin_inset Quotes eld
+\end_inset
+
+solución cualquiera
+\begin_inset Quotes erd
+\end_inset
+
+ en una buena solución, me pareció sencillamente mágico.
+\end_layout
+
+\begin_layout Standard
+Es por ello que siempre tenía bastante presente el campo de los algoritmos
+ genéticos cuando pensaba en mi proyecto fin de carrera.
+\end_layout
+
+\begin_layout Subsection
+Google AI Challenge
+\end_layout
+
+\begin_layout Standard
+Hacia finales del 2010, descubrí un campeonato llamado 
+\series bold
+AI Challenge
+\series default
+ que esponsorizado por GOOGLE ofrecia la oportunidad a estudiantes de todo
+ el mundo y al público en general de diseñar un bot y de enfrentarlo frente
+ a los bots del resto del mundo.
+ Para ello, proporcionaba herramientas para hacerlo en un corto periodo
+ de tiempo, pues el campeonato se resolvía en pocos meses.
+ Causas agenas a mi voluntad no me permitieron dedicarle todo el tiempo
+ que hubiese deseado al diseño del bot para el campeonato, logrando finalmente
+ un modesto puesto 1454º de entre los más de 4600 bots que llegaron a la
+ final.
+\end_layout
+
+\begin_layout Standard
+Aunque en un principio no me planteé realizar sobre el diseño de este bot
+ mi proyecto fin de carrera, una vez que participé en el campeonato y lamentado
+ por no haber podido dedicar más esfuerzo al diseño del bot y no haber podido
+ por la falta de tiempo haber llevado a cabo muchas de las ideas que tenía
+ en mente, empecé a realizar modificaciones y estudios en el diseño del
+ mismo, usando para ello más profundamente las los métodos evolutivos que
+ solo había podido usar casi anecdóticamente en el bot enviado al campeonato.
+\end_layout
+
+\begin_layout Subsection
+Después del Google AI Challenge
+\end_layout
+
+\begin_layout Standard
+Gracias a que no me había desligado del grupo de investigación con el que
+ había realizado la beca de investigación, tuve la posibilidad de ir trabajando
+ en el diseño del bot de apoyado por los integrantes del grupo, en principio,
+ para realizar un artículo sobre el tema.
+ Una vez concluido el artículo, surgieron nuevas ideas y experimentos que
+ deberían hacerse si se seguía trabajando sobre el tema, para dar lugar
+ a nuevos artículos.
+ A medida que dedicaba más tiempo y esfuerzo en el diseño evolutivo del
+ bot y atisbaba lo complejo (y gratificante al mismo tiempo) que era el
+ diseño evolutivos de bots, decidí en la primera del 2011 que relizaría
+ mi proyecto fin de carrera sobre este tema.
+\end_layout
+
+\begin_layout Section
+La elección del supervisor de proyecto
+\end_layout
+
+\begin_layout Standard
+Era consciente de que si bien la elección de una temática de un proyecto
+ era uno de los aspectos más importantes a la hora de realizar el proyecto
+ fin de carrera, la elección del supervisor, no era una decisión mucho menos
+ peliaguda.
+ En mi caso, además, la situación era más estraña, porque usualmente se
+ suele elegir al supervis
+\end_layout
+
+\end_body
+\end_document

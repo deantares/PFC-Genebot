@@ -1,0 +1,1 @@
+cat ejebot$1-* | grep Win | cat -n > salida_eje$1_100mapas.txt

@@ -1,0 +1,3217 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+ExGenebot
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:ExGenebot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+minitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este capítulo se describe el método empleado para la obtención de un
+ bot especialista (o experto) con ayuda del algoritmo genético descrito
+ en el capítulo anterior.
+ El objetivo del bot especialista, es ofrecer un comportamiento adaptativo
+ y especialista del bot en función de la tipología del mapa y del estado
+ del juego.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Motivación
+\end_layout
+
+\begin_layout Standard
+En el anterior capítulo hemos presentado un método de optimización de bots
+ que nos permite conseguir mediante evoluciones sucesivas individuos mejores
+ en el juego.
+ Además hemos conseguido algunas 
+\begin_inset Quotes eld
+\end_inset
+
+mejores soluciones
+\begin_inset Quotes erd
+\end_inset
+
+ fruto de varias ejecuciones de dicho algoritmo de optimización, entendiendo
+ por soluciones los parámetros de comportamiento de nuestro bot.
+\end_layout
+
+\begin_layout Standard
+Normalmente en un problema de optimización es esperable que existe un frente
+ de mejores soluciones.
+ Por tanto seria esperable que las 15 soluciones encontradas ofreciesen
+ un comportamiento muy simular entre si.
+ Sin embargo, si observamos la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Resumen-representación-de-mejores-individuos-genebot"
+
+\end_inset
+
+ en la que aparecen representadas dichas soluciones, podemos apreciar que
+ no parece existir una tendencia clara.
+ En otras palabras no parece existir un único frente que ofrezca la mejor
+ solución dentro de nuestro fenotipo.
+\end_layout
+
+\begin_layout Standard
+Podemos presuponer por tanto, que si nuestras distintas ejecuciones del
+ algoritmo de optimización no están llegando a una misma solución (o ni
+ tan siquiera parecida) entonces es posible existan varios comportamientos
+ igualmente válidos.
+ Es decir, no podemos asegurar que existe una única solución que consiga
+ maximizar el ratio de victorias del bot.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e1_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e2_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e3_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e4_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e5_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e6_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e7_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e8_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e9_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e10_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e11_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e12_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0.5
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e13_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e14_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/experimentos/e15_representacion.jpg
+	lyxscale 40
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Resumen representación de los mejores individuos de cada generación
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Resumen-representación-de-mejores-individuos-genebot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos plantearnos entonces, una duda más sobre nuestro fitness.
+ Hemos demostrado que es estable y consistente, lo que indica que la métrica
+ que empleamos es una buena métrica para medir la bondad de nuestro bot.
+ ¿Pero la bondad sobre qué? 
+\end_layout
+
+\begin_layout Standard
+Si recordamos la evaluación que realizamos para nuestros individuos, partimos
+ de que elegimos un conjunto de mapas reducido.
+ Dicho conjunto de mapas, se intentó que recogiese en cierta manera las
+ características de todos los tipos de mapas que podríamos encontrar en
+ el juego.
+ Recordamos ese conjunto de mapas en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Mapas-fitness-genebot-1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Al intentar abarcar un conjunto de mapas representativa de todo el conjunto
+ de mapas disponibles, estamos consiguiendo aquel bot que es mejor en promedio
+ para todos los tipos de mapas.
+ Aunque este comportamiento no es pernicioso (ya que nuestro bot conseguido
+ es el que mejor se comporta) si podemos dar una nueva orientación a nuestro
+ problema que nos permita conseguir una mejora más significativa.
+\end_layout
+
+\begin_layout Standard
+Podemos observar este comportamiento en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fitness-en-mapas-15-ejecuciones"
+
+\end_inset
+
+.
+ En dicha figura podemos constatar que nuestro mejor bot (el perteneciente
+ a la ejecución 8) no es el mejor en todos y cada uno de los mapas evaluados,
+ sino que es el el que en promedio tiene mejor resultado en los mapas propuestos.
+\end_layout
+
+\begin_layout Standard
+Cabe preguntarnos por tanto, si no seria más adecuado realizar una optimización
+ más exhaustiva para cada tipo de mapas.
+ Así por ejemplo, si se sabe que el mejor comportamiento para el mapa 26
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+O extrapolando, cualquier mapa de iguales características.
+\end_layout
+
+\end_inset
+
+ viene determinado por el individuo conseguido en la ejecución 2, ¿por qué
+ no aprovechar esa información? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/mapas/map7.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapa 7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/mapas/map11.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapa 11
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/mapas/map26.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapa 26
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/mapas/map69.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapa 69
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../capitulo6/mapas/map76.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapa 76
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapas del conjunto de evaluación del fitness de Genebot
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Mapas-fitness-genebot-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fitness por mapa.jpg
+	width 90col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Fitness de las 15 ejecuciones de Genebot en cada mapa
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Fitness-en-mapas-15-ejecuciones"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+¿Por qué utilizar únicamente un bot generalista que sea el mejor en media
+ en todos los mapas en lugar de uno bot que los una a todos
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En definitiva, el bot único que incluya a todos, para encontrarlos y atarlos
+ en las tinieblas.
+\end_layout
+
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+Ese es el objetivo de este capítulo, encontrar un método con el cual poder
+ emplear el mejor bot para un tipo de mapa concreto.
+ 
+\end_layout
+
+\begin_layout Section
+Estudio de los mapas
+\end_layout
+
+\begin_layout Standard
+Entendemos por tanto que se hace necesario realizar un estudio más exhaustivo
+ de los mapas que se emplearán en fitness de los individuos.
+ Ya no nos interesa encontrar un conjunto de mapas que sea representativo
+ de todo el espectro, sino que necesitamos definir características que sean
+ fácilmente identificables
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+La limitación de 1 segundo de tiempo está siempre presente.
+\end_layout
+
+\end_inset
+
+ que nos permitan agrupar los mapas en función de ellas.
+\end_layout
+
+\begin_layout Standard
+De esta manera, nuestro objetivo más inmediato supone estudiar los mapas
+ con el fin de encontrar características comunes entre ellos que nos permitan
+ agruparlos.
+ Fruto de dicho estudio, nacen las dos características de los mapas que
+ presentamos a continuación y que utilizaremos como métrica para clasificar
+ los mapas: la distancia entre bases y la dispersión.
+\end_layout
+
+\begin_layout Subsection
+Distancia entre bases
+\end_layout
+
+\begin_layout Standard
+Una de las características más inmediatas que puede tener un mapa cualquiera
+ es la distancia entre las bases.
+ El concepto de base ha sido anteriormente introducido, pero recordamos
+ que se trata de aquel planeta de un jugador que contiene la mayor cantidad
+ de flotas de las que dispone.
+ Así en el turno inicial, ambos planetas iniciales del jugador son considerados
+ bases.
+ A medida que transcurre el juego las bases se siguen definiendo igualmente,
+ esto es, como aquel planeta con mayor número de naves.
+\end_layout
+
+\begin_layout Standard
+Este criterio no solo nos permite un comportamiento especialista en un tipo
+ de mapa concreto, sino que también nos provee de un mecanismo adaptativo
+ al transcurso de la partida, dado que la distancia entre bases va a cambiar
+ a lo largo de una partida.
+ Y resulta 
+\begin_inset Quotes eld
+\end_inset
+
+coherente
+\begin_inset Quotes erd
+\end_inset
+
+ pensar que el comportamiento de nuestro bot puede verse afectado por la
+ proximidad o lejanía a la que se encuentre su enemigo.
+\end_layout
+
+\begin_layout Standard
+Recordamos que anteriormente, se ha definido la distancia entre dos planetas
+ como la distancia euclídea de las coordenadas cartesianas de los planetas,
+ siendo dicha distancia
+\begin_inset Formula $\in\mathds{R}\left[0,\infty\right]$
+\end_inset
+
+.
+ Existen por tanto, un número infinitos de valores posibles para la distancia
+ entre las bases.
+ 
+\end_layout
+
+\begin_layout Standard
+Si queremos emplear dicha distancia necesitamos crear 
+\begin_inset Quotes eld
+\end_inset
+
+grupos
+\begin_inset Quotes erd
+\end_inset
+
+ de distancia, necesitando para ello encontrar valores umbrales.
+ Definimos por tanto la distancia entre bases como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Sean 
+\begin_inset Formula $base_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $base_{2}$
+\end_inset
+
+ las bases de los jugadores 1 y 2 respectivamente.
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Sea 
+\begin_inset Formula $dis\in\mathds{R}\left[0,\infty\right]$
+\end_inset
+
+ la distancia euclídea entre los planetas 
+\begin_inset Formula $base_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $base_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Se define la distancia entre las bases como:
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+\align center
+\begin_inset Formula $DistanciaEntreBases\in\{Cerca,Media,Lejos\}=\begin{cases}
+Cerca & dis<16\\
+Media & 16\leq dis<22\\
+Lejos & 22\leq dis
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Distancia entre bases
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esta medida podemos distinguir entre 3 tipos de mapas (o situaciones
+ en los mapas).
+\end_layout
+
+\begin_layout Subsection
+Dispersión
+\end_layout
+
+\begin_layout Standard
+Observando los mapas nos percatamos de que existen mapas en los que los
+ planetas se agolpan en el centro del mapa, otros mapas en los que planetas
+ se agrupan en forma de anillo dejando un 
+\begin_inset Quotes eld
+\end_inset
+
+espacio vacío
+\begin_inset Quotes erd
+\end_inset
+
+ en su centro y otros en los que los mapas se distribuyen uniformemente
+ por el mapa.
+ Necesitamos encontrar una característica que refleje este valor y que sea
+ rápidamente computable.
+ 
+\end_layout
+
+\begin_layout Standard
+Para encontrar esta medida, estudiamos en profundidad la naturaleza del
+ mapa.
+ Cada mapa tiene una medida de 24x24 unidades reales
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Nuestro espacio euclídeo se define por tanto desde la coordenada (0,0) a
+ la coordenada (24,24).
+\end_layout
+
+\end_inset
+
+ Como la división de 24 valores es demasiado precisa, podemos 
+\begin_inset Quotes eld
+\end_inset
+
+agrupar
+\begin_inset Quotes erd
+\end_inset
+
+ sacrificando precisión pero consiguiendo reducir el número de valores posibles.
+ Consideramos por tanto dividir dicho espacio en sectores de 8x8 unidades
+ reales.
+ De esta manera, tenemos 3x3 sectores en nuestro mapa.
+\end_layout
+
+\begin_layout Standard
+Para cada sector de mapa, contamos el número de planetas que se encuentran
+ ubicados en dicho sector.
+ Recogemos los valores en una matriz 3x3, a la que denominaremos matriz
+ de dispersión.
+ En la siguiente figura, podemos ver algunos ejemplos de matrices de dispersión
+ de unos mapas concretos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Formula $\begin{array}{ccc}
+3 & 1 & 3\\
+2 & 5 & 2\\
+3 & 1 & 3
+\end{array}$
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Formula $\begin{array}{ccc}
+3 & 4 & 2\\
+2 & 1 & 2\\
+2 & 4 & 3
+\end{array}$
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Formula $\begin{array}{ccc}
+2 & 3 & 2\\
+3 & 3 & 3\\
+2 & 3 & 2
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Matrices de dispersión de ejemplo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+Por tanto en nuestra matriz de dispersión recogemos un 
+\begin_inset Quotes eld
+\end_inset
+
+resumen
+\begin_inset Quotes erd
+\end_inset
+
+ de la disposición de los planetas en nuestro espacio, agrupando las posiciones
+ planetas por sectores.
+ 
+\end_layout
+
+\begin_layout Standard
+Un valor muy relevante de la matriz es aquella que ocupa la posición central
+ 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Consideraremos que hacemos uso de la notación más computacional de las matrices,
+ en donde su primer elemento es definido como 
+\begin_inset Formula $m_{0,0}$
+\end_inset
+
+ en lugar de una notación más matemática en la que este primer elemento
+ es denominado 
+\begin_inset Formula $m_{1,1}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ Llamaremos a este valor, 
+\begin_inset Quotes eld
+\end_inset
+
+casilla central
+\begin_inset Quotes erd
+\end_inset
+
+ o valor de dispersidad central.
+ Análogamente definimos como casilla periférica a toda aquella casilla que
+ no sea la 
+\begin_inset Quotes eld
+\end_inset
+
+casilla central
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Haciendo uso de las casillas periféricas y la casilla central, calculamos
+ una nueva matriz restándole el valor central o valor de dispersidad central
+ a cada una de las casillas periféricas.
+ Como a la casilla central le vamos a restar su propio valor, la 
+\begin_inset Quotes eld
+\end_inset
+
+sacamos fuera
+\begin_inset Quotes erd
+\end_inset
+
+ del cálculo, por lo que tenemos un 
+\begin_inset Quotes eld
+\end_inset
+
+anillo
+\begin_inset Quotes erd
+\end_inset
+
+ al que denominaremos 
+\begin_inset Quotes eld
+\end_inset
+
+anillo de dispersión
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+El concepto de anillo no es el concepto matemático.
+ Sigue siendo una matriz, salvo que estamos omitiendo el valor central ya
+ que no es relevante.
+ Igualmente se podría haber puesto un 
+\begin_inset Quotes eld
+\end_inset
+
+cero
+\begin_inset Quotes erd
+\end_inset
+
+ o haber mantenido el propio valor central.
+ En la implementación se ha mantenido el valor central, para no perderlo
+ ya que resulta necesario en operaciones siguientes.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Formula $\begin{array}{ccc}
+2 & 4 & 2\\
+3 &  & 3\\
+2 & 4 & 2
+\end{array}$
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Formula $\begin{array}{ccc}
+-2 & -3 & -1\\
+-1 &  & -1\\
+-1 & -3 & -2
+\end{array}$
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Formula $\begin{array}{ccc}
+1 & 0 & 1\\
+0 &  & 0\\
+1 & 0 & 1
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Anillos de dispersión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+El valor que nos interesa es la media de las casillas periféricas del 
+\begin_inset Quotes eld
+\end_inset
+
+anillo
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Para conseguirlo calculamos la media de los valores del anillo.
+ Es decir, para cada valor periférico, se calcula la diferencia entre dicho
+ valor y el valor central; y por último, se calcula la media de todas las
+ diferencias.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Formula $\begin{array}{ccc}
+2 & 4 & 2\\
+3 &  & 3\\
+2 & 4 & 2
+\end{array}=2,75$
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Formula $\begin{array}{ccc}
+-2 & -3 & -1\\
+-1 &  & -1\\
+-1 & -3 & -2
+\end{array}=-1,75$
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Formula $\begin{array}{ccc}
+1 & 0 & 1\\
+0 &  & 0\\
+1 & 0 & 1
+\end{array}=0,5$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ejemplo cálculo dispersión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por tanto nuestra dispersión viene definida como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Sea 
+\begin_inset Formula $m\in\mathds{N}\times\mathds{N}\left[3,3\right]$
+\end_inset
+
+ la matriz de dispersión de nuestro mapa.
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Se define 
+\begin_inset Formula $m_{i,j}$
+\end_inset
+
+ como el valor de la matriz 
+\begin_inset Formula $m$
+\end_inset
+
+ en la posición 
+\begin_inset Formula $i,j$
+\end_inset
+
+ de la matriz.
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Sea 
+\begin_inset Formula $m_{1,1}$
+\end_inset
+
+ el valor central de la matriz 
+\begin_inset Formula $m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Se define el valor de la dispersión como:
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+\align center
+\begin_inset Formula $valorDispersion=\frac{8\times m_{1,1}-\sum_{i,j\neq(1,1)}m_{i,j}}{8}\in\mathds{R}[-\infty,\infty]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Cálculo del valor de dispersión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De igual manera que con la distancia, el valor de dispersión tiene infinitos
+ valores.
+ Necesitamos por tanto agruparlos.
+ Definimos los siguientes valores umbrales:
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $valorDispersion\leq-1$
+\end_inset
+
+ Hablamos de un mapa 
+\series bold
+periférico
+\series default
+, pues todos los planetas se muestran en forma de anillo dejando un 
+\begin_inset Quotes eld
+\end_inset
+
+espacio vacío
+\begin_inset Quotes erd
+\end_inset
+
+ en el centro.
+ Cuanto más tienda este valor a 
+\begin_inset Formula $-\infty$
+\end_inset
+
+ mayor será este espacio vacío y más 
+\begin_inset Quotes eld
+\end_inset
+
+anillados
+\begin_inset Quotes erd
+\end_inset
+
+ estarán los planetas.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $valorDispersion\geq1$
+\end_inset
+
+ Hablamos de un mapa 
+\series bold
+centrado
+\series default
+, pues todos los planetas se reúnen en el centro del mapa.
+ Cuanto más tienda este valor a 
+\begin_inset Formula $\infty$
+\end_inset
+
+ más agolpados estarán los planetas en el centro del mapa.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $-1<valorDispersion<1$
+\end_inset
+
+ Hablamos de un mapa con una distribución 
+\series bold
+media
+\series default
+, pues los planetas se encuentran uniformemente distribuidos por el mapa.
+ Cuando más se aproxime el valor de dispersión a los valores extremos, más
+ centrado o periférico será.
+\end_layout
+
+\begin_layout Standard
+Podemos definir por tanto la dispersión de un mapa como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Sea 
+\begin_inset Formula $valorDispersion$
+\end_inset
+
+ el valor de la dispersión de un mapa.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Se define la 
+\begin_inset Formula $Dispersion$
+\end_inset
+
+ como:
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+\align center
+\begin_inset Formula $Dispersion\in\{periférico,normal,centrado\}=\begin{cases}
+periférico & valorDispersión\leq-1\\
+medio & -1<valorDispersión<1\\
+centrado & 1<valorDispersión
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Dispersión de un mapa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Gracias a este valor de dispersión, tenemos cualificado la 
+\begin_inset Quotes eld
+\end_inset
+
+forma
+\begin_inset Quotes erd
+\end_inset
+
+ en la que se disponen los planetas sobre el mapa.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tipos de mapas
+\end_layout
+
+\begin_layout Standard
+Atendiendo a las características presentadas anteriormente
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+La distancia entre bases y la dispersión.
+\end_layout
+
+\end_inset
+
+ tenemos 9 tipos de mapas que vienen definidos por las 2 características
+ (con 3 valores posibles cada una).
+\end_layout
+
+\begin_layout Standard
+Clasificamos los mapas de los que disponemos con el fin de categorizarlos
+ en uno de los 9 tipos de mapas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename repartos_mapas.jpg
+	width 80col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Reparto de los mapas en función de la distancia entre bases y la dispersión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el siguiente cuadro, la cantidad de mapas de los que disponemos de cada
+ categoría:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Dispersión
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Periférico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Medio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Centrado
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Distancia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cercano
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Medio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lejano
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tipos de mapas en función de las categorías
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos que la mayor cantidad de mapas obedecen a las categorías medianas.
+ Se podrían haber ajustado los valores umbrales las métricas para que los
+ mapas se repartiesen uniformemente entre los tipos de mapas.
+ Sin embargo al hacerlo no estaríamos manteniendo las similitudes entre
+ los mapas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Experimentos
+\end_layout
+
+\begin_layout Standard
+Tenemos por tanto 9 tipos de mapas, que podemos abordar como 9 problemas
+ de optimización distintos.
+ Así al igual que en el capítulo anterior hemos abordado el problema de
+ resolver un problema de optimización para un conjunto de mapas
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Conjunto de mapas que abarcaba todo el espectro de mapas posibles.
+\end_layout
+
+\end_inset
+
+ en este caso lo vamos a hacer, pero atendiendo al tipo de mapa que corresponde
+ en cada caso.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename repartos_mapas_fitness.jpg
+	width 80col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapas de las funciones de fitness de ExGenebot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Planteamos por tanto 9 algoritmos genéticos idénticos al empleado en Genebot,
+ cambiando el conjunto de mapas de las funciones de fitness en cada uno
+ de ellos.
+\end_layout
+
+\begin_layout Standard
+Hacemos una modificación también, en el rival que empleamos para el cálculo
+ de fitness, haciendo uso del mejor individuo Genebot que tenemos en lugar
+ de GoogleBot.
+ Nuestro objetivo es encontrar (si es posible) mejores individuos que Genebot,
+ así que utilizándolo como fitness nos cercioramos de que así sea:
+\end_layout
+
+\begin_layout Standard
+A continuación se representan los individuos que corresponden a cada tipo
+ de mapa obtenidos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename tabla cromosomas.jpg
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Cromosomas de ExGenebot y Genebot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dispersión
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Periférico {<-1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Medio{-1,1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Centrado{>1}
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" rotate="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distancia Bases
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rotate="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Cercano{<16}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Ex00.jpg
+	lyxscale 25
+	width 24pheight%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Ex01.jpg
+	lyxscale 25
+	width 24pheight%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Ex02.jpg
+	lyxscale 25
+	width 24pheight%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rotate="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Medio {16,22}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Ex10.jpg
+	lyxscale 25
+	width 24pheight%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Ex11.jpg
+	lyxscale 25
+	width 24pheight%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Ex12.jpg
+	lyxscale 25
+	width 24pheight%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rotate="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Lejano {>22}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Ex20.jpg
+	lyxscale 25
+	width 24pheight%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Ex21.jpg
+	lyxscale 25
+	width 24pheight%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Ex22.jpg
+	lyxscale 25
+	width 24pheight%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mejores bot de cada conjunto de mapa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la siguiente gráfica se muestra el fitness conseguido por cada mejor
+ individuo de cada una de las ejecuciones de cada categoría enfrentándose
+ a Genebot:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ftiness-ExGenenbot.jpg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Fitness de los individuos que componen ExGenebot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Rediseño adaptativo
+\end_layout
+
+\begin_layout Standard
+Una vez definidas las características de los mapas, se hace necesario realizar
+ un rediseño adaptativo del bot de forma que tenga en cuenta las características
+ del mapa para seleccionar sus parámetros internos de decisión.
+\end_layout
+
+\begin_layout Standard
+Tenemos en primer lugar que a ExGenebot un mecanismo que detecte el tipo
+ de mapa en el que se encuentra en cada turno.
+ Dada la limitación de tiempo que se ha establecido en todo el problema
+ presentado, se hace necesario realizar estas operaciones de la forma más
+ rápida y eficiente posible.
+\end_layout
+
+\begin_layout Standard
+Además se hace necesario almacenar los 
+\begin_inset Quotes eld
+\end_inset
+
+pesos
+\begin_inset Quotes erd
+\end_inset
+
+ conseguidos mediante la optimización para los tipos de mapas, es decir,
+ los valores especialistas para cada tipo de mapa que hemos conseguido anteriorm
+ente.
+\end_layout
+
+\begin_layout Standard
+Esto se ha resuelto añadiendo a ExGenebot una matriz de valores, que denominarem
+os 
+\series bold
+matriz experta
+\series default
+.
+ Dicha matriz contiene los pesos del comportamiento del bot optimizados
+ para un tipo de mapa concreto.
+ 
+\end_layout
+
+\begin_layout Standard
+De esta manera, nuestro bot ExGenebot en primer lugar tiene que identificar
+ en que tipo de mapa se encuentra y después consultar en la matriz experta,
+ que comportamiento (es decir, que valores que codifican a Genebot) son
+ mejores emplear en ese tipo de mapa.
+\end_layout
+
+\begin_layout Standard
+En la siguiente figura se puede encontrar una aproximación al comportamiento
+ de ExGenebot:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename esquema_exGenebot.jpg
+	width 90col%
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Diagrama comportamiento ExGenebot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Comparativa con Genebot
+\end_layout
+
+\begin_layout Standard
+Ya tenemos constituido nuestro bot ExGenebot.
+ Se hace necesario realizar una comparación contra Genebot para poder discernir
+ que bot es el mejor.
+ Para ello se han realizado 10000
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+De los cuales son hábiles 9998, ya explicaremos el porque.
+\end_layout
+
+\end_inset
+
+ enfrentamientos entre ExGenebot y Genebot.
+ El mapa de enfrentamiento ha sido escogido aleatoriamente de entre el repertori
+o de mapas, no garantizándose que la selección haya sido uniforme.
+ 
+\end_layout
+
+\begin_layout Standard
+Recordemos que en el apartado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Estudio-de-coherencia"
+
+\end_inset
+
+ demostramos que cuanto más 
+\begin_inset Quotes eld
+\end_inset
+
+similares
+\begin_inset Quotes erd
+\end_inset
+
+ son los bots enfrentados más se acerca el porcentaje de victoria al 50%.
+ Cuanto mayor es la diferencia entre los bots, más se acerca al 100% de
+ victoria.
+ Cabría esperar que ExGenebot ganase en más del 50% de sus enfrentamientos
+ a Genebot.
+ De no ser así, ExGenebot no sería superior a Genebot y tendríamos que declarar
+ fallido este experimento.
+\end_layout
+
+\begin_layout Standard
+En la siguiente figura podemos observar un resumen muy escueto de los resultados
+ de los enfrentamientos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Absolutas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Porcentaje
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Victorias
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6227 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+62,28% 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Derrotas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3771 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+37,72% 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+TOTAL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9998 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Victorias de ExGenebot frente a Genebot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+ExGenebot consigue ganar a Genebot en el 62,28% de los enfrentamientos.
+ Aunque esta cifra no puede parecer muy significativa, a medida que estudiamos
+ en más detalle los resultados vemos que si lo es.
+\end_layout
+
+\begin_layout Standard
+Nos interesa saber en que tipo de mapa se han realizado las simulaciones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Tabla resumen tipo mapa.jpg
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Victorias por tipo de mapa de ExGenebot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Destacan dos columnas, las columnas 
+\begin_inset Quotes eld
+\end_inset
+
+vacías
+\begin_inset Quotes erd
+\end_inset
+
+ y 
+\begin_inset Quotes eld
+\end_inset
+
+null
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Al extraer la información de los ficheros de logs, en ocasiones se indicaba
+ que el tipo de mapa era de tipo 
+\begin_inset Quotes eld
+\end_inset
+
+vacío
+\begin_inset Quotes erd
+\end_inset
+
+ o era de tipo 
+\begin_inset Quotes eld
+\end_inset
+
+null
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Esto es debido a que si la contienda está terminando y uno de los jugadores
+ ya no tiene ningún planeta en posesión, por definición tampoco tiene base
+ y por tanto no sé puede calcular la distancia entre las bases.
+ Al no poderse calcular las distancias entre las bases, no se puede indicar
+ a que categoría pertenecía el mapa.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos en cambio, para las partidas con tipo de mapa vacía o null, mirar
+ cuales han sido el tipo de mapa que ha empleado en turnos anteriores, con
+ el fin de conocer que tipo de mapa se estaba empleando.
+ Con esta nueva información conseguimos otra tabla:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename victorias nulos y vacíos.jpg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ampliación victorias nulas y vacías de ExGenebot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos considerar por tantos estas partidas, que empezaron en un tipo de
+ mapa conocido y terminaron en un mapa desconocido, como partidas realizadas
+ en el mapa
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Podemos notar que vamos 
+\begin_inset Quotes eld
+\end_inset
+
+perdiendo
+\begin_inset Quotes erd
+\end_inset
+
+ simulaciones.
+ Esto es debido a problemas externos al parshear los ficheros de log que
+ no han sido controlados por no considerarlos relevantes.
+\end_layout
+
+\end_inset
+
+.
+ Ampliamos la tabla 7.4 con los valores de la tabla 7.5.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Tabla resumen tipo mapa ampliada.jpg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tabla ampliada de victorias de ExGenebot por tipo de mapa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como la tabla anterior trabajar con cifras absolutas y esto dificulta su
+ compresión, trabajamos a partir de ahora con porcentajes relativos al tipo
+ de mapa (no porcentajes absolutos).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Tabla resumen porcentajes relativos.jpg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Porcentaje de victorias en el tipo de mapa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este cuadro, podemos observar que el porcentaje de victorias en algunos
+ mapas es bastante excelente
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+88% por ejemplo en el tipo 2-0 o un 80% en el tipo 2-1.
+\end_layout
+
+\end_inset
+
+ mientras que en otros el porcentaje de victorias resulta bastante inferior
+ a lo esperable, por lo que hace que el promedio resulte bastante inferior.
+ En la figura siguiente se puede apreciar mejor este comportamiento:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename gráfica resumen porcentajes relativos.jpg
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Porcentaje de victorias de ExGenebot contra Genebot en cada tipo de mapa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es necesario recordar, que ExGenebot ha sido generado únicamente mediante
+ una sola ejecución para cada tipo de mapa, mientras que Genebot es el mejor
+ de 15 ejecuciones.
+ Además ExGenebot está desarrollado de forma modular e independiente para
+ cada tipología de mapa, por lo que podríamos emplear a Genebot como modelo
+ de comportamiento de la matriz experta si así lo deseásemos, para aquellos
+ tipos de mapas en los que resulta mejor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+En este capítulo hemos desarrollado un bot especialista y adaptativo haciendo
+ uso del mecanismo de optimización que describimos en el capítulo 6.
+ Denominamos a este nuevo bot ExGenebot.
+ Para crearlo, hemos dividido el problema de optimización del comportamiento
+ del bot en varios problemas de optimización independientes.
+ En otras palabras, en lugar de optimizar el bot para todo el conjunto de
+ mapas.
+ Es decir, en lugar de optimizar un bot que sea competente en todos los
+ casos (mapas), intentamos conseguir bots que sean muy buenos (expertos)
+ en un conjunto limitado de mapas.
+\end_layout
+
+\begin_layout Standard
+Para que esta estrategia sea eficaz, debemos asegurarnos que el conjunto
+ limitado de mapas de cada bot experto tenga iguales características, de
+ forma que el comportamiento del bot sea igual de eficaz en ambos.
+ Para ello, hemos estudiado los mapas extrayendo características que nos
+ permiten agruparlos por 
+\begin_inset Quotes eld
+\end_inset
+
+similitudes
+\begin_inset Quotes erd
+\end_inset
+
+ y abordarlos independientemente como problemas de optimización distintos.
+ Así hemos definido los mapas en función de 2 características: la distancia
+ entre bases y la dispersión.
+ Gracias a estas características, hemos establecido 9 tipos de mapas.
+\end_layout
+
+\begin_layout Standard
+Estos 9 tipos de mapas han sido abordados como problemas de optimización
+ independientes, dando lugar a 9 bots, cada uno especialista (optimizado)
+ para una topologia de mapa distinto.
+ Hemos rediseñado adaptativamente nuestro bot para reconocer el mapa y situación
+ en las que se encuentra, con el fin de utilizar los parámetros que sabe
+ que son más efectivos para ese (tipo de) mapa.
+\end_layout
+
+\begin_layout Standard
+Finalmente hemos enfrentado a ExGenebot contra Genebot, y a pesar de que
+ ExGenebot ha requerido menos tiempo de cómputo (han sido menos ejecuciones)
+ ha conseguido un 62% de victorias frente a Genebot.
+\end_layout
+
+\begin_layout Standard
+Aunque este valor nos puede parecer poco significativo, nos refleja que
+ un bot adaptativo menos evolucionado es mejor en los enfrentamientos que
+ un bot generalista muy optimizado.
+\end_layout
+
+\begin_layout Standard
+Además el carácter modular e independiente de ExGenebot, pues al fin y al
+ cabo esta compuesto de individuos genebot independientes, nos permite en
+ un futuro poder optimizar aquellos parámetros que tengan el índice de victoria
+ más alto.
+\end_layout
+
+\begin_layout Standard
+Podemos por tanto finalmente concluir que ofrecer un comportamiento especialista
+ y adaptativo es una estrategia ganadora.
+\end_layout
+
+\end_body
+\end_document

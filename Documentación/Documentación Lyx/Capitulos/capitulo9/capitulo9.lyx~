@@ -1,0 +1,285 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Finalidad y futuro trabajo
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+minitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este capítulo se describe la finalidad de la investigación realizada
+ en este proyecto fin de carrera.
+ También se describe finalmente las posibles vías del futuro trabajo en
+ este campo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Finalidad
+\end_layout
+
+\begin_layout Standard
+Aunque este es un proyecto de investigación y no se busca la aplicación
+ práctica directa de las técnicas presentadas, en esta sección se presentan
+ algunos campos de aplicación de las técnicas empleadas en este proyecto
+ fin de carrera.
+\end_layout
+
+\begin_layout Subsection*
+En videojuegos
+\end_layout
+
+\begin_layout Standard
+La primera aplicación del trabajo presentado es evidente.
+ El uso de las técnicas para el diseño u optimización de bots enemigos.
+ Aunque el marco de este trabajo han sido las IAs reactivas aplicadas a
+ los juegos de estrategia en tiempo real, es posible aplicar las mismas
+ técnicas a la optimización a bots de otros tipos de juegos.
+\end_layout
+
+\begin_layout Standard
+Así por ejemplo en los juegos MMORPG es muy común el uso de agentes reactivos
+ para definir el comportamiento de los personajes
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Por ejemplo, en Word of Warcraft mediante ingeniería inversa se ha conseguido
+ sacar los patrones de comportamientos de los enemigos, por ejemplo conocer
+ como elige su enemigo a atacar entre varios oponentes o cuando decide usar
+ habilidades especiales.
+\end_layout
+
+\end_inset
+
+ .
+ El uso de las técnicas propuestas para la optimización de los patrones
+ de comportamiento de los enemigos resulta muy evidente, permitiendo además
+ la ventaja de poder realizar bots expertos en escenarios y situaciones
+ concretas del juego.
+\end_layout
+
+\begin_layout Standard
+Por poner un ejemplo, en Diablo III
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+E igualmente, hablamos de conclusiones de la comunidad fruto de ingeniería
+ inversa.
+\end_layout
+
+\end_inset
+
+ todo elemento del juego (escenarios, enemigos, objetos,...) están generados
+ aleatoriamente mediante mecanismos similares a los empleados en este juego.
+ Así se puede proveer de una gran cantidad de recursos únicamente variando
+ los parámetros de comportamiento de los individuos creados.
+ Eso permite que sea susceptible el empleo de técnicas similares a la presentada
+s en este proyecto fin de carrera para la optimización (en función de varios
+ requisitos) de los individuos generados.
+\end_layout
+
+\begin_layout Subsection*
+Fuera de los videojuegos.
+\end_layout
+
+\begin_layout Standard
+Existen una gran cantidad de aplicaciones en los que se usan IAs reactivas
+ debido a la escased de tiempo de procesamiento disponibles o por las caracterís
+ticas especiales del problema.
+ Por ejemplo, cuando Google presentó el AI Contest, un tema muy tratado
+ por la comunidad del campeonato fueron las aplicaciones de los bots diseñados
+ para el campeonatos para problemas de difusión broadcast de paquetes en
+ una red.
+\end_layout
+
+\begin_layout Standard
+Igualmente, para cualquier problema de diseño con condiciones similares
+ (imposibilidad de uso de memoria, limitaciones de tiempo de procesamiento,...)
+ hacer uso de las técnicas de optimización propuestas adaptadas al problema,
+ deben dar un resultados similares a los obtenidos con nuestro problema
+ de prueba.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Futuro trabajo
+\end_layout
+
+\begin_layout Standard
+El campo de la IA y del empleo de Algoritmos evolutivos es muy rico, y aún
+ pueden ser aplicadas nuevas y novedosas técnicas en el problema que nos
+ hemos ocupado.
+ De esta manera tenemos en mente las siguientes vías de desarrollo de nuestro
+ proyecto:
+\end_layout
+
+\begin_layout Subsection*
+Relativos al rendimiento:
+\end_layout
+
+\begin_layout Subsubsection*
+Empleo de un algoritmo distibuido para la ejecución del algoritmo genético.
+\end_layout
+
+\begin_layout Standard
+Distribuyendo nuestro algoritmo genético conseguiríamos aún reducir aún
+ más el tiempo de computo, lo que nos permitiría trabajar con poblaciones
+ más altas y/o con un mayor número de generaciones.
+\end_layout
+
+\begin_layout Subsubsection*
+Uso de GPUs para acelerar el cálculo de simulaciones
+\end_layout
+
+\begin_layout Standard
+Las GPUs o tarjetas gráficas tienen una capacidad de cálculo asombrosa para
+ operaciones con matrices y 
+\begin_inset Quotes eld
+\end_inset
+
+superficies
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Dada la naturaleza de los juegos RTS en los que se emplea un mapa de juego,
+ el empleo de la GPU para realizar el procesamiento matricial empleado supondria
+ un ahorro considerable de los tiempos de simulación.
+\end_layout
+
+\begin_layout Subsection*
+Relativos al algoritmo genético:
+\end_layout
+
+\begin_layout Subsubsection*
+Algoritmo co-evolutivo
+\end_layout
+
+\begin_layout Standard
+Con el fin de desarrollar un mejor individuo generalista, se propuso emplear
+ un algoritmo co-evolutivo donde se evolucionasen tanto los invidiuos como
+ los conjuntos de mapas más difíciles para los invididuos.
+ Aunque esta idea en principio fue descartada a favor del bot experto, no
+ se descarta volver a considerarla nuevamente.
+\end_layout
+
+\begin_layout Subsubsection*
+Algoritmo multi-objetivo
+\end_layout
+
+\begin_layout Standard
+Aunque nuestro fitness ya incorpora un mecanismo similar al multi-objetivo,
+ se ha planteado realizar el algoritmo haciendo un uso más formal, definiendo
+ el algoritmo multiobjetivo para varios criterios de la partida.
+\end_layout
+
+\begin_layout Subsubsection*
+Uso de nuevos parámetros o componentes del algoritmo genético
+\end_layout
+
+\begin_layout Standard
+Por ejemplo hacer uso de islas, de migraciones de población, o ajustar más
+ los parámetros de optimización.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

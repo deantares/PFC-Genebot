@@ -1,0 +1,319 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\use_mhchem 0
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Metodología de trabajo
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+minitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este capítulo se describe brevemente la metodología de trabajo empleada
+ en el proyecto y así como una enumeración de los problemas (y sus soluciones)
+ con los que se ha tenido que liadar en este proyecto fin de carrera.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Organización temporal
+\end_layout
+
+\begin_layout Standard
+Aunque puede resultar hilarante, la planificación seguida en este proyecto
+ fin de carrera también ha sido evolutiva, pues ha ido evolucionándo y adaptándo
+se tanto al tiempo, como a las necesidades del propio proyecto.
+\end_layout
+
+\begin_layout Standard
+El proyecto fue inicialmente planificado para abarcar únicamente el problema
+ de optimización presentado.
+ Sin embargo, a medida que se avanzaba en el tema y que se iba viendo como
+ su complegidad e interes eran crecientes, se le fue dedicando cada vez
+ más tiempo y por consiguiente, abarcando más estudios.
+\end_layout
+
+\begin_layout Standard
+Así pues, en la metodología de trabajo seguida para la elaboración de este
+ proyecto fin de carrera ha supuesto un auténtico reto, pues como proyecto
+ de investigación que es, no existe un objetivo final ya que alcanzar un
+ objetivo nos abre las puertas a más preguntas e interrogantes, a más experiment
+os y a nuevas ideas que aplicar a nuestro problema.
+ Sin embargo, si se cree que con este proyecto se culmina en cierta manera
+ el ámbito propuesto: la optimización evolutiva de un bot para un juego
+ en estrategia real.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Enfrentándose a los problemas
+\end_layout
+
+\begin_layout Standard
+Abordar un proyecto como puede ser el proyecto fin de carrera que nos ocupa,
+ siempre está supeditado a problemas que van a surgir en su desarrollo.
+ Estos problemas, que no han sido un impedimento al desarrollo del proyecto
+ sino que han hecho más 
+\begin_inset Quotes eld
+\end_inset
+
+interesante
+\begin_inset Quotes erd
+\end_inset
+
+ el camino hasta él.
+ Así pues, en este apartado describiremos brevemente los problemas que han
+ estado presentes en la elaboración de este proyecto fin de carrera.
+\end_layout
+
+\begin_layout Subsection
+Desmotivación
+\end_layout
+
+\begin_layout Standard
+Un proyecto de investigación nos puede llevar a una desmotivación
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Y más teniendo en cuenta el precario panorama de la investigación actualmente
+ en España.
+\end_layout
+
+\end_inset
+
+ fruto de la idea muchas veces oída en el realización de este proyecto fin
+ de carrera de 
+\begin_inset Quotes eld
+\end_inset
+
+¿Y esto para que sirve?
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Aunque se entiende que un proyecto de investigación no obedece a un fin
+ inmediato, sino al estudio y realización métodica de una problemática o
+ campo de estudio, existe la idea de que un proyecto fin de carrera debe
+ resolver algo.
+ En este proyecto en cambio, se ha planteado como la primera de muchos interroga
+ntes sobre el diseño de un bot empleando algoritmos genéticos.
+\end_layout
+
+\begin_layout Standard
+De esta manera, aunque la desmotivación nunca ha llegado a hacer mella en
+ este proyecto, si ha estado presente en muchas ocasiones.
+ Para evitar la desmotivación ha sido vital contar con el apoyo de todas
+ aquellas personas que aparecen en los agradecimientos así como creer en
+ lo que está investigando y en uno mismo.
+\end_layout
+
+\begin_layout Subsection
+Problemas personales
+\end_layout
+
+\begin_layout Standard
+Aunque no es mi intención reflejar mis penurias personales en esta documentación
+, en muchas ocasiones ser capaz de abstraerse de los problemas que nos abordan
+ supone un problema dificilmente resoluble a la hora de abordar un proyecto.
+ Sin embargo al ser este proyecto una apuesta personal, realizarlo ha sido
+ más un auténtico placer que una penúria, por lo que ha sido frecuente escapar
+ a él al verme abrumado.
+\end_layout
+
+\begin_layout Subsection
+Disponibilidad de los datos
+\end_layout
+
+\begin_layout Standard
+El proyecto que hemos abordado requiere una gran cantidad de tiempo de procesami
+ento.
+ Como veremos más adelante, esta gran cantidad de tiempo necesaria para
+ la obtención de datos, ha supuesto en muchas ocasiones un grave impedimento
+ para la buena marcha del proyecto.
+ Abordar con los medios comunes de un estudiante un problema con tiempos
+ de cómputo superiores al mes, no resulta nada fácil.
+ 
+\end_layout
+
+\begin_layout Standard
+Estudiaremos más adelante como se ha resuelto este problema con la obtención
+ de los datos, pero no quisieramos dejar de agradecer a todas aquellas personas
+ y entidades que han colaborado cediendo equipos con los que desarrollar
+ el trabajo computacional de este proyecto.
+\end_layout
+
+\begin_layout Subsection
+Fallos informáticos
+\end_layout
+
+\begin_layout Standard
+Aunque no se ha sufrido ningún fallo informático significativo en el transcurro
+ de este proyecto, no por ello este problema ha dejado de estar presente.
+ Es más, nos aventuraríamos a asegurar que si no se ha sufrido ningún error
+ informático ha sido fruto del tácito esfuerzo en utilizar todas las comprobacio
+nes y mecanismos a nuestro alcance para evitar problemas.
+\end_layout
+
+\begin_layout Standard
+Por curiosidad, y por ser el único fallo reseñable que nos hizo perder dos
+ días de computo, anotar que el 
+\begin_inset Quotes eld
+\end_inset
+
+punto
+\begin_inset Quotes erd
+\end_inset
+
+ del teclado numérico de los MACs no es un punto realmente, sino que es
+ una coma.
+ Este nímia salvedad nos hizo perder dos días de computo al no lanzar nuestro
+ software con los parámetros deseados
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Ideamos por ese error el que creemos fue el primer algoritmo genético con
+ 0% de probabilidad de cruce y mutación de la historia.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Compaginar el proyecto con otras actividades
+\end_layout
+
+\begin_layout Standard
+Este si ha sido un problema bastante presente en la realización de este
+ proyecto y muy dificilmente solventable.
+ Además de la realización de este proyecto fin de carrera, he compaginado
+ mi tiempo con las asignaturas propias del plan de estudios 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Realizando 4º y 5º al mismo tiempo, o al menos, intentándolo.
+\end_layout
+
+\end_inset
+
+ lo cual nunca ha sido fácil.
+\end_layout
+
+\begin_layout Standard
+También ha compaginado la realización de este proyecto fin de carrera con
+ becas de colaboración ECTS con el Centro de Enseñanzas Virtuales de la
+ Universidad de Granada.
+ La realización de estas becas me restado tiempo y esfuerzo que en demasiadas
+ ocasiones ha tenido que compensarse con la pérdida de horas de sueño.
+\end_layout
+
+\begin_layout Standard
+Finalmente, gracias a este proyecto he estado envuelto en tareas tareas
+ de investigación, que aunque relacionadas con la temática de este proyecto,
+ en ocasiones se alajaban tangencialmente de este.
+ 
+\end_layout
+
+\begin_layout Standard
+Sin embargo no me arrepiendo de haber compaginado mi proyecto fin de carrera
+ con todas las ocupaciones que he podido.
+ La necesidad por un lado y mi espíritu inquieto por el otro, me han llevado
+ a intentar compaginar lo mejor posible todas las ocupaciones.
+ No sé si tener demasiados frentes abiertos me habrá supuesto más dificultades
+ que alegrías, pero como proclamo anteriormente, no me arrepiento de ello
+ y volvería a hacerlo.
+\end_layout
+
+\end_body
+\end_document

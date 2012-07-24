@@ -1,0 +1,1192 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection
+Estudio de estabilidad del fitness
+\end_layout
+
+\begin_layout Standard
+Para comprobar la estabilidad de nuestro fitness, planteamos el siguiente
+ experimento.
+ Cogemos un número manejable de individuos del fenotipo y lo sometemos a
+ varias evaluaciones.
+\end_layout
+
+\begin_layout Standard
+Elegimos 6 individuos y procedemos a evaluarlos 100 veces.
+ En las figuras 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráfica-del-estudio-ruido-I"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráfica-del-estudio-ruido-II"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráfica-del-estudio-ruido-III"
+
+\end_inset
+
+ podemos observar los resultados de dichas evaluaciones.
+ Al final de la sección se pueden ver estas ejecuciones en las tablas 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tabla-con-las-100-ejecuciones-ruido-I"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tabla-con-las-100-ejecuciones-ruido-II"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ruido_g1.jpg
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+G1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ruido_g2.jpg
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gráficas del estudio del ruido de los 6 individuos de estudio (I)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gráfica-del-estudio-ruido-I"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ruido_g3.jpg
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+G3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ruido_g4.jpg
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+G4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gráficas del estudio del ruido de los 6 individuos de estudio (II)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gráfica-del-estudio-ruido-II"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ruido_g5.jpg
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+G5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ruido_g6.jpg
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+G6
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gráficas del estudio del ruido de los 6 individuos de estudio (III)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gráfica-del-estudio-ruido-III"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A simple vista podemos observar como parece existir una tendencia entre
+ la estabilidad del fitness y la bondad del fitness.
+ Vamos a definir dicha tendencia matemáticamente.
+\end_layout
+
+\begin_layout Standard
+Para ello calculamos la varianza
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Igualmente podría servirnos la desviación típica.
+\end_layout
+
+\end_inset
+
+ de cada uno de los individuos que estamos estudiando.
+ Sin embargo, estamos representando las dos magnitudes de las que nuestro
+ fitness depende.
+ Trabajar con ambas magnitudes nos puede resultar costoso
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Además de que no aporta ningún beneficio al estudio.
+\end_layout
+
+\end_inset
+
+.
+ Sin embargo, recordando la función de fitness presentada en el algoritmo
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Función-de-fitness-genebot"
+
+\end_inset
+
+, podemos hacer una transformación para convertir el fitness de dos magnitudes
+ en una sola.
+\end_layout
+
+\begin_layout Standard
+Recordemos que la variable 
+\begin_inset Quotes eld
+\end_inset
+
+gana
+\begin_inset Quotes erd
+\end_inset
+
+ del fitness solo sirve para penalizar a aquellos individuos de la población
+ que hayan perdido alguna contienda.
+ Podemos simular ese mismo comportamiento añadiendo una 
+\begin_inset Quotes eld
+\end_inset
+
+penalización
+\begin_inset Quotes erd
+\end_inset
+
+ al número de turnos de un individuo si ha perdido alguna contienda.
+\end_layout
+
+\begin_layout Standard
+Localizamos para ello el valor máximo de turnos que ha tardado un bot en
+ ganar o perder los 5 mapas.
+ Encontramos ese valor en G6, siendo 2680.
+ Para redondear, vamos a añadir a todas aquellas evaluaciones que hayan
+ perdido alguna contienda una penalización de 3000 en sus turnos.
+ De esta manera, trabajaremos con un pseudo-fitness lineal, que para el
+ caso de estudio nos va a ser más que suficiente.
+\end_layout
+
+\begin_layout Standard
+Calculamos ahora el promedio
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Se consideró utilizar una medida más robusta para la tendencia central (entendie
+ndo que una medida es robusta cuando no se ve afectada significativamente
+ por valores atípicos) como por ejemplo la mediana.
+ Sin embargo dado que estamos estudiando la inestabilidad y los valores
+ relevantes de nuestro estudio son aquellos valores atípicos, creímos más
+ conveniente el empleo del promedio, ya que se ve más afectado por la dispersión
+ de los datos y le afectan más los valores extremos.
+ Precisamente los valores sobre los que queremos centrar el estudio de la
+ estabilidad.
+\end_layout
+
+\end_inset
+
+ y la varianza de los pseudo-fitness de las ejecuciones 100 de cada uno
+ de los individuos de estudio.
+ Vamos a utilizar la varianza como medida de 
+\begin_inset Quotes eld
+\end_inset
+
+inestabilidad
+\begin_inset Quotes erd
+\end_inset
+
+ debido a que representa la dispersión de la muestra.
+ Podemos ver esos resultados en el cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Promedio-y-desviación-ruido"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+En principio los datos pueden parecer que no aportan nada.
+ En la gráfica 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Relación-entre-la-varianza-promedio-ruido"
+
+\end_inset
+
+ podemos visualizar los puntos de la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Promedio-y-desviación-ruido"
+
+\end_inset
+
+ representados en una gráficamente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+G1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+G2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+G3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+G4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+G5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+G6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Promedio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5095,33
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4147,93
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4363,17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1602,03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1081,22
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2058,69
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Varianza
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1242536
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3186769
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2491913
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1259250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1177154
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1734155
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Promedio y varianza de los individuos del estudio de ruido.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Promedio-y-desviación-ruido"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename relación_ruido.jpg
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionof{figure}[Relación entre la varianza y el promedio de pseudo-fitness
+ en el estudio del rudio]{Relación entre la varianza y el promedio de pseudo-fit
+ness..}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Relación-entre-la-varianza-promedio-ruido"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Intentamos ajustar los puntos a una curva que podamos estudiar.
+ En la gráfica 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Curva-de-estabilidad-ruido"
+
+\end_inset
+
+ podemos observar dicha curva.
+ Gracias al valor 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ podemos saber que nuestra curva se ajusta a los puntos con más de un 96%
+ de eficacia, lo cual estadísticamente resulta bastante significativo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename relación_ruido_curva.jpg
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Curva de estabilidad.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Curva-de-estabilidad-ruido"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos por tanto entender la varianza como la inestabilidad de nuestro
+ individuo.
+ Es decir, cuanto mayor es la varianza más inestable es el bot y análogamente,
+ cuanto menor es la varianza más estable es el bot.
+ Si la estudiamos al detalle, podemos observar que a medida que el fitness
+ se encuentra más hacia los extremos, es decir, cuanto mejor o peor sea
+ un bot en promedio, más estable se comporta.
+ Al contrario, los bots que no son ni muy buenos ni muy malos, muestran
+ mayor inestabilidad.
+ 
+\end_layout
+
+\begin_layout Standard
+Presentamos a continuación la formula de la inestabilidad de un individuo
+ en función de su fitness.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Sea 
+\begin_inset Formula $F$
+\end_inset
+
+ el fenotipo de nuestro problema.
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Sea 
+\begin_inset Formula $G\in F$
+\end_inset
+
+ un individuo de nuestro problema.
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Sea 
+\begin_inset Formula $pF(G)$
+\end_inset
+
+ la función pseudoFitness que hemos definido anteriormente.
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+Definimos la inestabilidad de un genebot como:
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+\align center
+\begin_inset Formula $inestabilidad(G)=-0,00002\times pF(G)^{3}+1,4822\times pF(G)^{2}-2535\times pf(G)+6000000$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Estabilidad de un Genebot en función de su fitness
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sin embargo, dicha fórmula nos prevé un mal comportamiento para 
+\begin_inset Quotes eld
+\end_inset
+
+las mejores soluciones
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Esto es debido a que en el estudio no hemos encontrado 
+\begin_inset Quotes eld
+\end_inset
+
+la mejor solución
+\begin_inset Quotes erd
+\end_inset
+
+ posible, es más, ni tan siquiera nos hemos aproximado a ella.
+ Por lo tanto, solo podemos fiarnos de la fórmula en el actual entorno en
+ el que estamos trabajando.
+\end_layout
+
+\begin_layout Standard
+A continuación vamos a intentar demostrar que estudios análogos van a asignar
+ siempre la menor inestabilidad a un valor próximo al valor promedio de
+ la evaluaciones del mejor individuo de la muestra.
+ Para ello, vamos a expresar la ecuación anteriormente formulada con mayor
+ precisión
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+La mayor precisión que nos permite el tipo de dato que estamos utilizando
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f(x)=-0,000202400452452319x^{3}+1,48220514131825x^{2}-2534,96019169437x+2411736,55716226$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si estudiamos los puntos críticos de dicha función, encontramos un mínimo
+ en 
+\begin_inset Formula $x\approx1105.428339$
+\end_inset
+
+ valor muy próximo al promedio del mínimo encontrado 
+\begin_inset Formula $1084.97$
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Podemos considerar ambos valores muy próximos debidos a la propagación de
+ errores de precisión de la máquina.
+\end_layout
+
+\end_inset
+
+.
+ Por tanto podemos intuir, que la 
+\begin_inset Quotes eld
+\end_inset
+
+mínima
+\begin_inset Quotes erd
+\end_inset
+
+ inestabilidad de una muestra va a ser asignada al mejor individuo promedio
+ que encontremos.
+ Así pues, si nuevamente se volviese a estudiar la estabilidad con mejores
+ individuos, cabría esperar que nuevamente la menor inestabilidad fuese
+ asignada al mejor individuo promedio.
+\end_layout
+
+\begin_layout Standard
+Igualmente cabe comentar, que la función 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ presentada anteriormente tiene también un máximo local en 
+\begin_inset Formula $x\approx3776.65$
+\end_inset
+
+ que curiosamente
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Aunque en las matemáticas no existen las curiosidades, solo lo que es esperable.
+\end_layout
+
+\end_inset
+
+ se encuentra muy próximo a la mediana de los promedios de los individuos.
+ Este hecho se puede interpretar como que los individuos más mediocres
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Entendiendo mediocridad como más cercanos a la media.
+\end_layout
+
+\end_inset
+
+ son los que presentan mayor inestabilidad.
+\end_layout
+
+\begin_layout Standard
+Por tanto, podemos concluir que la estabilidad (o inestabilidad) del fitness
+ se comporta como sigue: cuanto más extremo resulta un individuo (es decir,
+ cuanto mejor o peor fitness obtiene) más estable resulta su comportamiento.
+ Esto es, si el fitness de un bot indica que es bastante bueno, su estabilidad
+ también es bastante buena.
+ Igualmente, si un bot es bastante malo, podemos estar seguro de que ese
+ bot es bastante malo.
+ Aunque ambos resultados son significativos, el resultado realmente importante
+ es que nuestro fitness converge hacia individuos que cada vez son más estables,
+ pues el fitness y la estabilidad se hayan directamente relacionados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ruido_tabla_grande.jpg
+	width 100col%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tabla con las 100 ejecuciones de los 6 bots (I)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tabla-con-las-100-ejecuciones-ruido-I"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ruido_tabla_grande_2.jpg
+	width 100col%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tabla con las 100 ejecuciones de los 6 bots (II)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tabla-con-las-100-ejecuciones-ruido-II"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

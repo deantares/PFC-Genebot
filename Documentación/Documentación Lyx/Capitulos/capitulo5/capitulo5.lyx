@@ -1,0 +1,1450 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Aresbot
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Aresbot"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+minitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este capítulo se describe el primer paso tomado en el diseño del bot:
+ la realización de un bot base.
+ Del bot base de extraerán los parámetros que condicionan su funcionamiente
+ y finalmente se justificara la necesidad de un mecanismo de optimización.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Concepción del bot
+\end_layout
+
+\begin_layout Standard
+Cuando al principio del campeonato se abordó la tarea de diseñar un bot
+ que fuese capaz de jugar al juego propuesto, no se tenía en mente la idea
+ de diseñar un bot que posteriormente fuese optimizado aplicando algoritmo
+ genéticos, sino que en primer lugar fue diseñado (e implementado) un bot
+ el cual aquí se presenta y que denominaremos 
+\series bold
+Aresbot
+\series default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+El origen del nombre es debido a un 
+\begin_inset Quotes eld
+\end_inset
+
+juego de palabras
+\begin_inset Quotes erd
+\end_inset
+
+ con mi segundo apellido y con el dios romano de la guerra Ares, por lo
+ que la decisión de llamar Aresbot al bot nos pareció acertada.
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Una vez diseñado el bot, y como veremos a lo largo de este capítulo, nos
+ encontramos ante un problema que en apariencia tenía difícil solución.
+ Muchas de las variables y pesos asignados a las decisiones del bot, habían
+ sido establecidas 
+\begin_inset Quotes eld
+\end_inset
+
+manualmente
+\begin_inset Quotes erd
+\end_inset
+
+, obtenidas fruto del ensayo y error al realizar y observar simulaciones.
+ Resultaba latente, que no podíamos a priori conocer que valores y pesos
+ harían a nuestro bot más competitivo.
+ En resumen, si ese 
+\begin_inset Quotes eld
+\end_inset
+
+0.5
+\begin_inset Quotes erd
+\end_inset
+
+ que habíamos implementado era mejor o peor que un 
+\begin_inset Quotes eld
+\end_inset
+
+0.3
+\begin_inset Quotes erd
+\end_inset
+
+ o un 
+\begin_inset Quotes eld
+\end_inset
+
+0.8
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para entender mejor este concepto, en el siguiente apartado se describe
+ el funcionamiento de Aresbot.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Funcionamiento del bot
+\end_layout
+
+\begin_layout Standard
+Para diseñar a Aresbot, visualizamos una gran cantidad de simulaciones,
+ con el fin de extraer que estrategias y tácticas resultaban más efectivas.
+ Dado que solo podíamos emprender un tipo de acción (movimiento de naves),
+ que el tiempo de procesamiento era reducido (1 segundo) y que teníamos
+ imposibilitado el uso de memoria, eramos conscientes de que el bot tendría
+ que ser muy simple.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/esquema.jpg
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Diagrama de comportamiento de AresBot.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:aresBot_sin_pesos"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Desde el principio del diseño, se tuvo presente de que el bot no tendría
+ que obedecer a una naturaleza determinista, es decir, para igual entrada
+ (estado actual del juego) no siempre produciría la misma salida: el azar
+ sería influyente en el comportamiento de nuestro bot.
+ Aunque esta decisión puede ser más o menos discutida, desde el principio
+ consideramos que realizar leves variaciones fruto del azar en el comportamiento
+ del bot, haría que este fuese menos predecible y además, al ampliar el
+ abanico de comportamientos posibles, se evitaría realizar acciones 
+\begin_inset Quotes eld
+\end_inset
+
+poco beneficiosas
+\begin_inset Quotes erd
+\end_inset
+
+ constantemente.
+\end_layout
+
+\begin_layout Standard
+En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:aresBot_sin_pesos"
+
+\end_inset
+
+ se describe el diagrama de comportamiento de Aresbot.
+ Explicaremos a continuación, cada una de las partes que están implicadas
+ en su comportamiento.
+\end_layout
+
+\begin_layout Subsection
+El planeta base:
+\end_layout
+
+\begin_layout Standard
+Al principio del turno, el bot establece su planeta base.
+ Dicho planeta se define como aquel planeta, de entre los que pertenecen
+ al jugador, que alberga la mayor cantidad de naves.
+\end_layout
+
+\begin_layout Standard
+El planeta base es variante a lo largo de la partida, ya que en un turno
+ el mayor grueso de tropas puede estar en un planeta y en el siguiente en
+ otro.
+\end_layout
+
+\begin_layout Subsection
+El planeta objetivo:
+\end_layout
+
+\begin_layout Standard
+El planeta objetivo, es un planeta enemigo o neutral que será el principal
+ blanco del ataque del bot durante este turno.
+ Para evitar que se elija como planeta objetivo un planeta que ya esta bajo
+ ataque, se consideran aquellos planetas enemigos o neutrales hacia los
+ que no tenemos una flota en movimiento.
+ 
+\end_layout
+
+\begin_layout Standard
+Para ello, nos elegirlo nos basaremos en dos características de un planeta:
+ el sacrificio y el beneficio:
+\end_layout
+
+\begin_layout Subsubsection
+Sacrificio
+\end_layout
+
+\begin_layout Standard
+El sacrificio es el coste que tenemos que pagar por albergar esperanzas
+ de adquirir el planeta.
+ Entendemos por sacrificio de un planeta como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+sacrificio(p)=p.flota\times Distancia(base,p)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Función de sacrificio.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es decir, nuestro sacrificio será mayor en función de la cantidad de naves
+ que albergue el planeta, así como cuanto más lejos el planeta esté de nuestra
+ base.
+\end_layout
+
+\begin_layout Standard
+Esto se decidió debido a que cuanto más lejos está el planeta objetivo,
+ más tardará en llegar la flota hasta el planeta, pudiendo variar (hacia
+ peor o hacia mejor) la situación del planeta objetivo.
+ Cuando más lejos se encuentra el planeta menos 
+\begin_inset Quotes eld
+\end_inset
+
+fiable
+\begin_inset Quotes erd
+\end_inset
+
+ supone el planeta, lo que se trasforma en un mayor sacrificio pues es más
+ difícil garantizar nuestra victoria.
+\end_layout
+
+\begin_layout Subsubsection
+Beneficio
+\end_layout
+
+\begin_layout Standard
+A pesar de los sacrificios, hay planetas que resultan más beneficios que
+ otros planetas: en función de su ratio de crecimiento.
+ De dicha forma, resulta mucho más beneficioso apoderarse de un planeta
+ u otro en función de cuanto mayor es su ratio de crecimiento, pues mayor
+ cantidad de naves va a generar, lo que nos va a permitir tener una mayor
+ flota.
+ Entendemos por tanto el beneficio como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+beneficio(p)=1+p.ratioCrecimiento
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Función de beneficio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+El riesgo
+\end_layout
+
+\begin_layout Standard
+El riesgo nace con la combinación del sacrificio y el beneficio.
+ Sin sacrificio no hay beneficio.
+ Cuanto más beneficioso resulta nuestro objetivo, menos arriesgado parece,
+ aunque el sacrificio que tengamos que realizar sea mayor.
+\end_layout
+
+\begin_layout Standard
+Definimos por tanto el riesgo de un planeta como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+riesgo(p)=\frac{sacrificio(p)}{beneficio(p)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Función de riesgo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aplicando lo que hemos visto anteriormente, entendemos como el riesgo como:
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+riesgo(p)=\frac{sacrificio(p)}{beneficio(p)}=\frac{p.flota\times Distancia(base,p)}{1+p.ratioCrecimiento}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Función de riesgo ampliada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Siendo:
+\end_layout
+
+\begin_layout Description
+p el planeta (enemigo o neutral no atacado) que está siendo evaluado su
+ riesgo.
+\end_layout
+
+\begin_layout Description
+p.flota el numero de naves alojadas en ese instante por el planeta p considerado.
+\end_layout
+
+\begin_layout Description
+Distancia(base,p) la distancia entre la base definida anteriormente y el
+ planeta p considerado.
+\end_layout
+
+\begin_layout Description
+p.ratioCrecimiento el ratio de crecimiento del planeta p considerado.
+\end_layout
+
+\begin_layout Standard
+Nuestro objetivo debe ser un planeta que minimice el riesgo, lo cual implica
+ maximizar el beneficio, minimizando el sacrificio.
+ 
+\end_layout
+
+\begin_layout Subsection
+Colonias, diezmo y ataque extra:
+\end_layout
+
+\begin_layout Standard
+Salvo nuestro planeta base, el resto de planeta que pertenecen al bot son
+ considerados colonias.
+ Las colonias puede realizar dos acciones excluyentes entre si.
+\end_layout
+
+\begin_layout Subsubsection
+Diezmo
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+del latín decimus, décimo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entendemos por diezmo un 
+\begin_inset Quotes eld
+\end_inset
+
+impuesto
+\begin_inset Quotes erd
+\end_inset
+
+ que cada colonia debe pagar al planeta base en número de naves.
+ Con una probabilidad del 50% (o 1 de cada 2 turnos en promedio) cada colonia
+ debe enviar un 10% de sus tropas almacenas al planeta base.
+ De esta forma, el grueso de tropas se reúnen en el mismo punto de la galaxia,
+ lo que permite tener un planeta difícil de conquistar al tener un alto
+ número de flotas alojadas y un buen nutrido origen para enviar los ataques.
+\end_layout
+
+\begin_layout Subsubsection
+Ataque extra
+\end_layout
+
+\begin_layout Standard
+En caso de que una colonia no realice diezmo durante el turno, puede 
+\begin_inset Quotes eld
+\end_inset
+
+colaborar
+\begin_inset Quotes erd
+\end_inset
+
+ con el ataque al planeta objetivo, pero solo si está más cerca al planeta
+ objetivo que el planeta base.
+ Para todas las colonias que se encuentren más cerca del planeta objetivo
+ que la base, con una probabilidad del 90% de que suceda para cada colonia,
+ envían el 50% de sus naves almacenadas al planeta objetivo.
+ Este número de tropas, serán descontadas del 
+\begin_inset Quotes eld
+\end_inset
+
+total
+\begin_inset Quotes erd
+\end_inset
+
+ que se tendrán que mandar desde la base.
+\end_layout
+
+\begin_layout Subsection
+Ataque: expansión y conquista
+\end_layout
+
+\begin_layout Standard
+Un ataque supone el envío de flotas a un planeta que no pertenece al jugador.
+ Dado que los planetas que son neutrales no incremenetan sus naves alojados
+ mediante su ratio de crecimiento y los planetas enemigos si lo hacen, hacemos
+ una distinción en función del propietario del planeta.
+ 
+\end_layout
+
+\begin_layout Standard
+Es decir, en función del propietario del planeta objetivo, hablamos de dos
+ tipos de ataques distintos:
+\end_layout
+
+\begin_layout Subsubsection
+Expansión
+\end_layout
+
+\begin_layout Standard
+Una expansión es una ataque a un planeta neutral.
+ Cómo es un planeta neutral, no va a cambiar su número de naves alojadas
+ (salvo por intervención de otro jugador).
+ Por tanto, el número de tropas enviadas en el ataque desde la base viene
+ determinado por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+flotaExpandir(p)=p.flota+5-\sum c.envioExtra
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Función de cálculo de flota necesaria en caso de expansión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Siendo:
+\end_layout
+
+\begin_layout Description
+p el planeta a expandir.
+\end_layout
+
+\begin_layout Description
+p.flota el número de naves alojadas en el planeta 
+\series bold
+p
+\series default
+ a expandir.
+ 
+\end_layout
+
+\begin_layout Description
+c.envioExtra el número de naves que aporta cada colonia a la expansión.
+\end_layout
+
+\begin_layout Subsubsection
+Conquista
+\end_layout
+
+\begin_layout Standard
+Una conquista es un ataque a un planeta enemigo.
+ En este caso, consideramos que el planeta tiene ratio de crecimiento y
+ por tanto por cada turno que tarden las flotas en llegar, el número de
+ flotas en el planeta se incrementará (sin contar la intervención de otros
+ jugadores).
+ Es por ello, que el número de tropas enviadas en el ataque desde la base
+ viene determinado por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+flotaConquistar(p)=Dist(base,p)*p.ratioCrecim+p.flota+5-\sum envioExtra
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Función de cálculo de la flota necesaria en caso de conquista.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Siendo:
+\end_layout
+
+\begin_layout Description
+p el planeta a conquistar.
+\end_layout
+
+\begin_layout Description
+Distancia(base,p) la distancia entre la base y el planeta objetivo 
+\series bold
+p
+\series default
+ a conquistar.
+\end_layout
+
+\begin_layout Description
+p.ratioCrecimiento el ratio de crecimiento del planeta 
+\series bold
+p
+\series default
+ a conquistar.
+\end_layout
+
+\begin_layout Description
+p.flota el número de naves alojadas en el planeta 
+\series bold
+p
+\series default
+ a conquistar.
+\end_layout
+
+\begin_layout Description
+c.envioExtra el número de naves que aporta cada colonia a la conquista.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Ataque por encima de lo posible.
+\end_layout
+
+\begin_layout Standard
+Antes de ordenar el envío de las tropas, es necesario comprobar que el número
+ de flotas necesarias para la extensión o la conquista no sobrepasa el número
+ de naves de las que dispone el planeta base.
+ En caso de que sean necesarias más tropas de las que se disponen en ese
+ momento, durante ese turno no se realiza el ataque (ni desde la base ni
+ desde la colonia, únicamente se realiza el diezmo).
+ 
+\end_layout
+
+\begin_layout Standard
+Se consideró que se podría utilizar una planeta con un menor riesgo, pero
+ se desestimó dado que el riesgo es directamente proporcional al número
+ de tropas alojadas por el planeta.
+ De esta manera, entre elegir un planeta con menor sacrificio y esperar
+ más turnos para ser capaz de conquistar el planeta que más beneficio efectivo
+ aporta, nos decantamos por la segunda.
+\end_layout
+
+\begin_layout Section
+Extracción de parámetros
+\end_layout
+
+\begin_layout Standard
+Una vez diseñado el bot se empezó a realizar pruebas con el bot de ejemplo
+ (GoogleBot) en los diferentes mapas del juego, y se observó que muchos
+ de los parámetros utilizados no parecían ser muy buenos.
+\end_layout
+
+\begin_layout Standard
+Además, eramos incapaces de justificar la decisión de muchos de ellos .
+ ¿Por qué era mejor un 90% de posibilidad de realizar un ataque extra por
+ colonia? ¿Porque el diezmo ocurría 1 de cada 2 turnos? Siendo incapaces
+ de justificar estas decisiones, se consideró que era necesario realizar
+ una optimización de dichos parámetros del bot.
+\end_layout
+
+\begin_layout Standard
+El objetivo, era claro.
+ Encontrar el conjunto de parámetros que haciese que el bot fuese mucho
+ más competente en el juego, es decir, que fuese capaz de ganar muchas más
+ partidas.
+\end_layout
+
+\begin_layout Standard
+En primer lugar, era necesario localizar dichos parámetros que necesitaban
+ ser optimizados.
+ Muchos de ellos resultaban evidentes, pero otros muchos fueron añadidos
+ a posteriori, con el fin de parametrizar (y poder optimizar) el comportamiento
+ y naturaleza del bot.
+\end_layout
+
+\begin_layout Standard
+A continuación, se recogen los parámetros que se consideraron que debían
+ ser optimizados, así como sus valores iniciales para AresBot:
+\end_layout
+
+\begin_layout Subsection
+Probabilidad de diezmo
+\end_layout
+
+\begin_layout Standard
+Durante el diseño del bot, se consideró que el diezmo debería ser realizado
+ (en promedio) en uno de cada dos turnos.
+ Sin embargo, dicha decisión no obedecía a ningún razonamiento y por tanto,
+ no podíamos concluir que fuese lo más óptimo.
+ ¿Y si se estaba realizando el diezmo demasiado poco? ¿Y si era demasiado?
+\end_layout
+
+\begin_layout Standard
+Resultaba evidente, en cambio, que en función de la probabilidad de diezmo
+ el bot se comportaría de formas distintas: con una probabilidad baja de
+ realizar un diezmo, las naves no se agolparían en la base sino que estarían
+ repartidas entre las colonias.
+ Con una alta probabilidad de diezmo, se conseguiría tener una menor cantidad
+ de flotas en las colonias, pero se dispondría de una cantidad considerable
+ de flotas en la base.
+\end_layout
+
+\begin_layout Standard
+Cómo se ha comentado anteriormente
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+y se seguirá comentado en este capítulo, pues la finalidad del mismo es
+ comprender y justificar la decisión de utilizar un algoritmo genético.
+\end_layout
+
+\end_inset
+
+ la imposibilidad de saber si la decisión tomada era la correcta, nos llevo
+ a plantearnos utilizar un algoritmo de optimización.
+\end_layout
+
+\begin_layout Subsection
+Porcentaje de diezmo
+\end_layout
+
+\begin_layout Standard
+Casi igual de importante que la probabilidad de que suceda un diezmo para
+ una colonia, resultaba la cantidad del diezmo realizado.
+ Aunque un diezmo por definición es la décima parte, ¿cómo podíamos saber
+ que enviar un 10% de las tropas era lo mejor? De igual manera, ¿cómo podríamos
+ saber que combinación de valores probabilidad de diezmo y porcentaje de
+ diezmo era mejor?
+\end_layout
+
+\begin_layout Standard
+Igualmente, era obvio que enviar una gran cantidad de naves en cada diezmo
+ o enviar en cambio una poca cantidad de naves, variaría el funcionamiento
+ del bot de forma significativa.
+ 
+\end_layout
+
+\begin_layout Subsection
+Probabilidad de ataque desde las colonias
+\end_layout
+
+\begin_layout Standard
+Cómo se ha explicado anteriormente, las colonias que se encuentran más cerca
+ del planeta objetivo que el planeta base, si no realizan un diezmo, pueden
+ (en función de una probabilidad) enviar tropas para atacar más rápidamente
+ al planeta objetivo.
+ En Aresbot se consideró que una buena probabilidad para realizar este ataque
+ extra era un 90%, pues se consideró que resultaba provechoso enviar las
+ tropas desde las colonias en lugar de desde las bases.
+ Sin embargo, ¿cómo podemos justificar que esta es una decisión acertada?
+\end_layout
+
+\begin_layout Standard
+Cabe también apreciar, que en función de este valor, el bot ofrecerá un
+ comportamiento distinto pues si la probabilidad de ataque es muy alta,
+ la mayoría de las naves en un ataque serán provenientes de las colonias,
+ y en cambio, si la probabilidad es muy baja, la mayoría de las naves de
+ las flotas de ataque provendrían de la base.
+\end_layout
+
+\begin_layout Subsection
+Porcentaje de naves enviadas en ataques desde las colonias
+\end_layout
+
+\begin_layout Standard
+En el diseño de Aresbot, se consideró que enviar un 50% de las naves alojadas
+ en la colonia suponía una cantidad aceptable de naves.
+ Sin embargo, ¿cómo sabemos que esta cantidad es la más efectiva? ¿Si enviamos
+ menos naves no estaremos exponiendo menos la colonia al enemigo (al tener
+ menos naves, al enemigo le haría falta una flota más pequeña para arrebatárnosl
+a? ¿Y si enviamos más naves, no estaremos facilitan la conquista o expansión,
+ al estar haciéndola más rápidamente?
+\end_layout
+
+\begin_layout Standard
+De igual manera que en los casos anteriores, este parámetro (y su eficacia)
+ se encuentra muy relacionado con el resto de parámetros.
+ Si no enviamos muchas tropas a la base (mediante diezmo) disponemos de
+ mayor cantidad de naves en las colonias, así que resulta más evidente que
+ el envío de la mayor cantidad de las naves debería producirse desde las
+ colonias.
+ En cambio, si en las colonias no tenemos una gran cantidad de naves (pues
+ las colonias realizan grandes aportaciones a la base) resulta más evidente
+ que el envío del grueso de naves debería ser enviado desde la base.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Naves extras por flota
+\end_layout
+
+\begin_layout Standard
+Nos fijamos nuevamente en las funciones que calculan el número de naves
+ a enviar desde la base en un ataque (dependiendo de si se trata de una
+ expansión o una conquista)\SpecialChar \@.
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\[
+flotaConquistar(p)=Distancia(base,p)*p.ratioCrecimiento+p.flota+5-\sum envioExtra
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\[
+flotaExpandir(p)=p.flota+5-\sum c.envioExtra
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un elemento al que no hemos realizado apreciación en las descripciones de
+ las formulas es al número 5.
+ ¿Qué indicamos con este valor entero? Básicamente funciona como una estimación
+ del número de naves que quedaran intactas una vez conquistado o expandido
+ el planeta.
+ Es decir, es el número de naves excedentes que serán enviadas al planeta.
+\end_layout
+
+\begin_layout Standard
+Nuevamente, nos hayamos ante la duda de si es mejor enviar un mayor número
+ de naves que no influirán en la batalla (impidiéndonos usarlas en el próximo
+ turno) pero harán que arrebartar el planeta una vez conquistado sea más
+ difícil.
+ O en cambio, es mejor enviar una menor cantidad de naves extras 
+\begin_inset Quotes eld
+\end_inset
+
+innecesarias
+\begin_inset Quotes erd
+\end_inset
+
+ y mantenerlas en la base para un nuevo ataque en el próximo turno.
+\end_layout
+
+\begin_layout Standard
+Igualmente, este valor es altamente dependiente de los otros parámetros
+ presentados.
+ ¿Si en la base tenemos poca cantidad de naves (por un bajo diezmo) debemos
+ enviar una gran cantidad de naves extras aunque tengamos pocas naves y
+ estemos impidiendo usarlas en un próximo ataque? De forma análoga, ¿si
+ el bot tiende a acumular grandes cantidades de naves en la base (debido
+ a un diezmo alto) y sabemos que son 
+\begin_inset Quotes eld
+\end_inset
+
+recuperadas
+\begin_inset Quotes erd
+\end_inset
+
+ con facilidad no es mejor enviar una gran cantidad de naves extras?
+\end_layout
+
+\begin_layout Subsection
+Función de riesgo: pesos
+\end_layout
+
+\begin_layout Standard
+Fijamos nuestra atención ahora hacia la función de riesgo que hemos definido
+ anteriormente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+riesgo(p)=\frac{sacrificio(p)}{beneficio(p)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esta función pretendemos cuantificar que riesgo supondrá atacar ese
+ planeta.
+ Recordamos nuevamente, que para adquirir un planeta debemos perder un número
+ de naves igual al tamaño de la flota que alberga el planeta.
+ Las naves suponen un bien preciado en la partida, y hay que entender que
+ no deben ser malgastadas ya que el juego se pierde si el jugador se queda
+ sin naves.
+\end_layout
+
+\begin_layout Standard
+En nuestra ecuación de riegos de Aresbot, estamos otorgando el mismo peso
+ al sacrificio que al beneficio y sin saber que balance entre ambos es el
+ más óptimo.
+ En definitiva, no estamos permitiendo que nuestro bot sea más osado o más
+ conservador.
+ ¿Cómo podemos saber que un comportamiento más conservador es mejor que
+ un comportamiento más osado? Y aún peor, ¿es mejor ser conservador cuando
+ se agrupan nuestras naves en la base o es mejor ser osado para adquirir
+ más colonias que alimenten nuestra base mediante su diezmo? 
+\end_layout
+
+\begin_layout Standard
+Es por ello que se decidió ponderar el sacrificio y el beneficio, de forma
+ que se puediese hacer que uno u otro fuese más trascendente para el cálculo
+ del riesgo.
+ Quedando por tanto la función de riesgo como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+riesgo(p)=\frac{\omega s\times sacrificio(p)}{\omega b\times beneficio(p)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Siendo ωs y ωb valores que permiten la ponderación del sacrificio y el beneficio
+ respectivamente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Los parámetros de AresBot
+\end_layout
+
+\begin_layout Standard
+Finalmente nos encontramos con 7 parámetros que definían el comportamiento
+ de nuestro bot.
+ Por comodidad, les asignamos unos nombres cortos que nos permitiesen trabajar
+ y hacer referencia a ellos de forma fácil y atómica:
+\end_layout
+
+\begin_layout Description
+p_diezmo la probabilidad de acontecimiento del diezmo
+\end_layout
+
+\begin_layout Description
+%_diezmo el porcentaje de naves que se envían a la base mediante el diezmo
+\end_layout
+
+\begin_layout Description
+p_ataqueColonias la probabilidad de acontecimiento del ataque desde las
+ colonias más cercanas al objetivo.
+\end_layout
+
+\begin_layout Description
+%_ataqueColonias el porcentaje de naves que se envían en el ataque desde
+ las colonias más cercanas al objetivo.
+\end_layout
+
+\begin_layout Description
+navesExtras el número de naves extras enviadas en cada ataque desde la base.
+\end_layout
+
+\begin_layout Description
+ωs el peso del sacrificio en la función de estimación de riesgo de un candidato
+ a planeta objetivo.
+\end_layout
+
+\begin_layout Description
+ωb el peso del beneficio en la función de estimación de riesgo de un candidato
+ a planeta objetivo.
+\end_layout
+
+\begin_layout Standard
+Atendiendo igualmente a la comodidad para la optimización, se estableció
+ que cada parámetro se definiría entre [0,1].
+ Así aunque esta limitación no añadía ninguna restricción a la mayoría de
+ los parámetros, para el parámetro 
+\series bold
+navesExtras 
+\series default
+no resultaba natural.
+ De esta forma, se estableció que el parámetro navesExtras indicaba que
+ porcentaje de naves sobre 20 debían ser enviadas.
+ Por ejemplo, un valor de 
+\series bold
+navesExtras
+\series default
+ de 0,5 suponía el envío de 10 naves extras en cada ataque.
+\end_layout
+
+\begin_layout Standard
+En la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "5_tabla_aresBot"
+
+\end_inset
+
+ se recogen los valores establecidos manualmente para cada uno de los parámetros
+ anteriormente indicados en aresBot:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+p_diezmo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+%_diezmo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+p_ataqueColonias
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+%_ataqueColonias
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+navesExtras
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ωs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ωb
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Parámetros de Aresbot 
+\begin_inset CommandInset label
+LatexCommand label
+name "5_tabla_aresBot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por último en este capítulo, se recoge la representación gráfica del bot,
+ mediante la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "graf_AresBot"
+
+\end_inset
+
+ que nos permite resumir el bot en una sola imagen y que nos permitirá estudiar
+ y comparar más adelante AresBot con otro tipos de bots.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/aresBot.jpg
+	width 95col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Representación gráfica de AresBot 
+\begin_inset CommandInset label
+LatexCommand label
+name "graf_AresBot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

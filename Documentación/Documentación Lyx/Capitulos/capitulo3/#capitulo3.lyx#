@@ -1,0 +1,1111 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\use_mhchem 0
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Introducción
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+minitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este capítulo se describen todos aquellos conceptos de juego y del problema
+ afrontado en este proyecto fin de carrera.
+ Para ello se explicará la mecanica del juego y las restricciones adicionales
+ al problema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Juego Planet Wars
+\end_layout
+
+\begin_layout Standard
+El juego planet wars es una versión simplificada del juego Galcon, un popular
+ juego de iPhone, Android y PC
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Se puede encontrar una versión jugable del juego aquí: http://www.galcon.com/flash
+/
+\end_layout
+
+\end_inset
+
+.
+ Dada su complejidad subyacente pese a su aparente simpleza, fue elegido
+ como entorno de estudio por Google para su campeonato de Inteligencia Artificia
+l del 2010 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://ai-contest.com
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/galcon.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Imagen promocional de Galcon Fusion, juego del cual se basa Planet Wars.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Planet wars es un juego de estrategia en tiempo real ambientado en el espacio
+ exterior.
+ El objetivo es conquistar todos los planetas del mapa o eliminar todas
+ las naves enemigas (ambas metas llevan al mismo fin, la hegemonía de la
+ galaxia).
+ Aunque en Galcon pueden intervenir varios jugadores, en la versión simplificada
+ Planet Wars los enfrentamientos involucran únicamente a dos jugadores.
+\end_layout
+
+\begin_layout Standard
+La contienda entre los jugadores tiene lugar en un mapa o escenario de juego
+ que alberga varios planetas, cada uno con un número asignado que representa
+ la cantidad de naves que están alojadas en él (ver Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:naves"
+
+\end_inset
+
+).
+ En cada instante de tiempo, cada planeta alberga una cantidad específica
+ de naves, que pueden pertenecer al jugador, al oponente o ser neutrales.
+ La propiedad esta representada por un color asignado a cada jugador.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/naves.eps
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionof{figure}[Captura de la simulación de un estado temprano del juego
+ Planet Wars.]{Captura de la simulación de un estado temprano del juego Planet
+ Wars.Los planetas blancos pertenecen al jugador, los planetas gris oscuros
+ pertenecen al oponente y los planetas grises claros no pertenecen aún a
+ ningún jugador.
+ Las flotas son representadas como triánculos.
+ Los números (tanto en planetas como en flotas) representan el número de
+ naves que lo componen.}
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:naves"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Además cada planeta tiene una tasa de crecimiento que indica cuantas naves
+ se generan durante cada asalto y son agregadas a la flota que el jugador
+ posee en el planeta.
+ Los planetas neutrales no agregan nuevas naves a la flota hasta que no
+ son conquistados por algún jugador.
+\end_layout
+
+\begin_layout Standard
+El objetivo del juego (como se ha comentado) es apoderarse de todos los
+ planetas del rival.
+ Aunque Planet Wars es un RTS, la implementación en el campeonato lo transformó
+ en un juego basado en pseudo-turnos.
+ 
+\end_layout
+
+\begin_layout Subsection
+Los planetas
+\end_layout
+
+\begin_layout Standard
+Cada planeta tiene los siguientes campos/propiedades:
+\end_layout
+
+\begin_layout Subsubsection
+ID 
+\emph on
+(identificador del planeta)
+\end_layout
+
+\begin_layout Standard
+Cada planeta tiene también asignado un identificador, asignado de acuerdo
+ con el orden en el que los planetas son 
+\begin_inset Quotes eld
+\end_inset
+
+añadidos
+\begin_inset Quotes erd
+\end_inset
+
+ al mapa, empezando desde 0.
+ El ID de un planeta no cambia a lo largo de la partida.
+\end_layout
+
+\begin_layout Subsubsection
+Owner's Player ID 
+\emph on
+(identificador del propietario del planeta)
+\end_layout
+
+\begin_layout Standard
+El propietario del planeta puede ser neutral, jugador 1 o jugador 2 .
+ Los jugadores se ven siempre a si mismos como el jugador 1 y su oponente
+ es siempre el jugador 2 (el entorno de juego se encarga de ofrecer siempre
+ la misma vista a cada jugador).
+ El propietario de un planeta puede cambiar a lo largo del juego, indicando
+ que otro jugador ha conquistado dicho planeta.
+ El propietario es indicado mediante un número entero, cuyo significado
+ se recoge a continuación:
+\end_layout
+
+\begin_layout Description
+0 significa que el planeta es neutral
+\end_layout
+
+\begin_layout Description
+1 significa jugador 1 (o tú como jugador, siempre bajo tu punto de vista)
+\end_layout
+
+\begin_layout Description
+2 significa jugador 2 (el oponente, siempre bajo tu punto de vista).
+\end_layout
+
+\begin_layout Subsubsection
+{X-coordinate,Y-coordinate} 
+\emph on
+(coordenadas X,Y en el espacio del planeta)
+\end_layout
+
+\begin_layout Standard
+La posición de los planetas está especificada respecto a un origen común
+ en un espacio euclídeo.
+ Las coordenadas son dadas como números en coma flotante.
+ Los planetas nunca se mueven (no tienen movimientos de traslación) ni tampoco
+ varia su número a lo largo de la partida (a lo largo de la partida ni se
+ crean ni se destruyen planetas).
+\end_layout
+
+\begin_layout Subsubsection
+Number of Ships 
+\emph on
+(número de naves alojadas en el planeta)
+\end_layout
+
+\begin_layout Standard
+El número de naves que alberga el planeta.
+ Este valor cambia a lo largo de la partida, ya sea por el crecimiento natural
+ del planeta o por el movimiento de tropas del jugador.
+\end_layout
+
+\begin_layout Subsubsection
+Growth Rate 
+\emph on
+(ratio de crecimiento del planeta)
+\end_layout
+
+\begin_layout Standard
+El ratio de crecimiento de un planeta es el número de naves que son añadidas
+ al planeta al término de cada turno.
+ Si el planeta tiene un estado neutral (no pertenece a ningún jugador) no
+ se aplica el ratio de crecimiento, pues sólo los jugadores pueden conseguir
+ nuevas naves mediante el ratio de crecimiento.
+ El ratio de crecimiento no cambia a lo largo de la partida.
+ Internamete es representado como un número entero, y vistualmente como
+ el tamaño (radio) del planeta.
+\end_layout
+
+\begin_layout Subsection
+Las flotas
+\end_layout
+
+\begin_layout Standard
+Para lograr nuestro objetivo en el juego, podemos ordenar el movimiento
+ de naves de uno de nuestros planetas a cualquier planeta enemigo.
+ A un conjunto de naves en movimiento se denomina flota.
+ Cada flota tiene los siguientes campos/propiedades:
+\end_layout
+
+\begin_layout Subsubsection
+Owner's PlayerID 
+\emph on
+(identificador del propietario de la flota)
+\end_layout
+
+\begin_layout Standard
+El propietario se representa de igual manera que para los planetas con la
+ salvedad de que no puede haber flotas neutrales:
+\end_layout
+
+\begin_layout Description
+1 significa jugador 1 (o tú como jugador, siempre bajo tu punto de vista)
+\end_layout
+
+\begin_layout Description
+2 significa jugador 2 (el oponente, siempre bajo tu punto de vista).
+\end_layout
+
+\begin_layout Subsubsection
+Number of Ships 
+\emph on
+(tamaño de la flota del planeta)
+\end_layout
+
+\begin_layout Standard
+La cantidad de naves que componen la flota.
+ Está representado internamente por un número entero.
+\end_layout
+
+\begin_layout Subsubsection
+Source PlanetID 
+\emph on
+(planeta de origen de la flota)
+\end_layout
+
+\begin_layout Standard
+El planeta de partida de la flota.
+ Aunque el planeta de origen tiene que pertenecer al jugador en el momento
+ de constituación de la flota, durante el viaje de la flota puede cambiar
+ la pertenencia del planeta sin afectar para nada a una flota.
+ Para identificar el planeta, se utiliza el 
+\series bold
+Owner's Player ID
+\series default
+.
+\end_layout
+
+\begin_layout Subsubsection
+Destination PlanetID 
+\emph on
+(planeta de destino de la flota)
+\end_layout
+
+\begin_layout Standard
+El planeta de destino de la flota.
+ Más adelante se definirá la causística implicada en la llegada al planeta
+ destino en función del propietario del mismo (en relación con el propietario
+ de la flota).
+ Para identificar el planeta, se utiliza el 
+\series bold
+Owner's Player ID
+\series default
+.
+\end_layout
+
+\begin_layout Subsubsection
+Total Trip Length 
+\emph on
+(duración del viaje espacial)
+\end_layout
+
+\begin_layout Standard
+Las naves tardan un tiempo en desplazarse por el mapa, recorriendo una cantidad
+ determinada de distancia por turnos.
+ La distancia de viaje total es proporcionada como un entero, indicando
+ el número de turnos requeridos para viajar del origen hasta el destino.
+ Esta distancia es determinada como la distancia euclídea desde el destino
+ (representado por su coordenadas 
+\begin_inset Formula $\left(dx,dy\right)$
+\end_inset
+
+) hasta el origen (representado por sus coordenadas
+\begin_inset Formula $\left(sx,sy\right)$
+\end_inset
+
+) redondeada.
+ Es decir:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\lceil \sqrt{\left(dx-sx\right)^{2}+\left(dy-sy\right)^{2}}\right\rceil 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Number of turns remaining until arrival 
+\emph on
+(tiempo de llegada)
+\end_layout
+
+\begin_layout Standard
+Tiempo (turnos o segundos) que falta para la llegada de la flota al planeta
+ de destino.
+ Se representan también como entero e indican el número de turnos que quedan
+ para llegar al destino.
+ 
+\end_layout
+
+\begin_layout Subsection
+Enfrentamientos
+\end_layout
+
+\begin_layout Standard
+El evento que sucede cuando una flota llega a su planeta objetivo.
+ Depende de a quien pertenezca dicho destino, pues en función de este criterio
+ puede suceder dos eventos:
+\end_layout
+
+\begin_layout Itemize
+Si el planeta destino pertenece al jugador propietario de la flota, las
+ naves de la flota se suman a las naves alojadas en el planeta.
+ Se puede ver un ejemplo en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ejemplo movimiento flotas"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Cuando el planeta no pertenece al jugador (es neutral o enemigo) se produce
+ un enfrentamiento.
+ La manera de resolver los enfrentamientos en Planet Wars es muy simple.
+ Las naves no disponen de ningún tipo de armamento o mecanismo de defensa,
+ así que la única manera de derribar una nave enemiga es estrellar la propia
+ nave contra una nave enemiga.
+ Por tanto cuando la flota llega al planeta, se producen enfrentamientos
+ nave a nave, resultando ganador el jugador que posea mayor cantidad de
+ naves.
+ En definitiva, los enfrentamientos se basan en el principio de 
+\begin_inset Quotes eld
+\end_inset
+
+quien más tropas tiene, gana
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/naves_enfrentamiento_suma_0.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "55col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/naves_enfrentamiento_suma_1.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "55col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/naves_enfrentamiento_suma_2.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionof{figure}[Ejemplo de movimiento de flotas entre los planetas del
+ mismo jugador.]{Ejemplo de movimiento de flotas entre los planetas del mismo
+ jugador.
+ En la imagen superior se visualiza el envío de dos flotas de tamaño 7 y
+ 2 en un instante que denominaremos t0.
+ Se ha supuesto que el ratio de crecimiento del planeta a la izquierda es
+ de 5 naves/turno y del planeta a la ziquierda de 2 naves/turno.
+ En la segunda imagen se aprecia el instante de tiempo t1, en el que la
+ flota de tamaño 7 ha llegado ya a su destino y sus naves se han sumado
+ a las del planeta (22=10+7+5) y la flota de tamaño 2 se encuentra más cerca
+ de su destino.
+ En la tercera imagen se aprecia el instante de tiempo t2, en donde la flota
+ de tamaño 2 ha llegado ya a su destino (29=22+5+2).}
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ejemplo movimiento flotas"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se profundizará más sobre el enfrentamiento en el apartado de Actualización
+ del estado del juego, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Llegada"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Turnos
+\end_layout
+
+\begin_layout Standard
+El entorno de juego realiza las siguientes acciones repetidamente.
+\end_layout
+
+\begin_layout Enumerate
+Envía el estado del juego a los jugadores.
+\end_layout
+
+\begin_layout Enumerate
+Recibe las órdenes (movimiento de tropas entre planetas) de ambos jugadores.
+\end_layout
+
+\begin_layout Enumerate
+Actualiza el estado del juego.
+\end_layout
+
+\begin_layout Enumerate
+Comprueba las condiciones de victoria.
+\end_layout
+
+\begin_layout Standard
+Un turno se define como los cuatro pasos anteriores.
+ Si se indica que la partida va a disponer de un número X de turnos máximos,
+ significa que los jugadores recibirán X veces el estado del juego y enviarán
+ sus órdenes otras X veces.
+\end_layout
+
+\begin_layout Subsection
+Actualización del estado del juego.
+\end_layout
+
+\begin_layout Standard
+Después de recibir la lista de órdenes de ambos jugadores, el motor del
+ juego actualiza el estado del mismo.
+ Esto es realizado en tres fases:
+\end_layout
+
+\begin_layout Subsubsection
+Salida:
+\end_layout
+
+\begin_layout Standard
+En esta fase, se llevan a cabo las órdenes indicadas por los jugadores,
+ es decir, para cada orden se crea la flota y se 
+\begin_inset Quotes eld
+\end_inset
+
+descuenta
+\begin_inset Quotes erd
+\end_inset
+
+ del planeta el número de naves que la compone.
+ Como se ha indicado, la duración del viaje se calcula mediante la distancia
+ euclídea entre el planeta origen y destino.
+\end_layout
+
+\begin_layout Subsubsection
+Progreso:
+\end_layout
+
+\begin_layout Standard
+En esta fase, las flotas avanzan un turno y se incrementa el numero de naves
+ de los planetas (no neutrales) en función de su tasa de crecimiento.
+ 
+\end_layout
+
+\begin_layout Standard
+Las flotas avanzan, simplemente decrementando su contador turnos hasta la
+ llegada.
+\end_layout
+
+\begin_layout Standard
+Para cada planeta, si es propiedad de un jugador, su ratio de crecimiento
+ se añade a su número de naves alojadas.
+ Por ejemplo, si el planeta es propiedad del jugador 1, y aloja 4 naves
+ y su tasa de crecimiento es 2, el número de naves alojadas se actualiza
+ a 6.
+ Sin embargo, si el planeta es neutral, su población no crece.
+\end_layout
+
+\begin_layout Subsubsection
+Llegada:
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Llegada"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta fase, se encarga de procesar la llegadas de las flotas a su planeta
+ de destino, es decir, aquellas flotas cuyo contador de 
+\begin_inset Quotes eld
+\end_inset
+
+turnos hasta llegada
+\begin_inset Quotes erd
+\end_inset
+
+ es igual a cero.
+ 
+\end_layout
+
+\begin_layout Standard
+Para cada planeta, se tiene en cuenta su propietario y el número de naves
+ alojadas, así como el recuento de todas las naves en flotas que hayan llegado
+ a ese planeta.
+ Vamos a llamar a cada uno de estos grupos 
+\begin_inset Quotes eld
+\end_inset
+
+fuerzas
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A continuación, combina las fuerzas de acuerdo a sus propietarios.
+ Veamos un ejemplo:
+\end_layout
+
+\begin_layout Itemize
+El jugador 1 es el dueño del planeta y aloja 5 naves.
+ 
+\end_layout
+
+\begin_layout Itemize
+En este turno, han llegado 2 flotas del jugador 1 con 3 naves cada una y
+ otras dos flotas del jugador 2 con 5 naves cada una.
+ 
+\end_layout
+
+\begin_layout Itemize
+El resultado de la combinación de fuerzas nos indica que el jugador 1 dispone
+ de 11 naves y el jugador 2 de 10 naves.
+\end_layout
+
+\begin_layout Standard
+Una vez combinadas, se puede dar el caso de que tan solo exista una fuerza
+ (un solo jugador), que es la nueva ocupación del planeta.
+\end_layout
+
+\begin_layout Standard
+Si hay dos fuerzas, el nuevo dueño del planeta es el dueño de la fuerza
+ con mayor cantidad de naves, aunque ha perdido tantas naves como naves
+ tuviese la fuerza del otro jugador.
+ Si ambas fuerzas son del mismo tamaño (tienen el mismo número de naves),
+ entonces el ganador es el dueño original del planeta, y numero de naves
+ alojadas en el planeta es de cero.
+\end_layout
+
+\begin_layout Standard
+Si el dueño original del planeta era neutral, es posible que se de el caso
+ de que haya tres fuerzas que luchan por la posesión de dicho planeta.
+ En este caso, el jugador que posea la mayor fuerza es el nuevo propietario,
+ y su número de naves reduce en el mismo número de naves que la segunda
+ mejor fuerza.
+ Si las dos fuerzas tienen el mismo tamaño, el propietario original conserva
+ la propiedad del planeta, pero sus fuerzas se ponen a cero.
+\end_layout
+
+\begin_layout Standard
+Hay un manera muy fácil e intuitiva de entender estar reglas.
+ Veamos un ejemplo:
+\end_layout
+
+\begin_layout Itemize
+El jugador 1 tiene una fuerza de 5 naves.
+\end_layout
+
+\begin_layout Itemize
+El jugador 2 tiene una fuerza de 4 naves.
+\end_layout
+
+\begin_layout Itemize
+El planeta (que es neutral) tiene una fuerza de 3 naves.
+\end_layout
+
+\begin_layout Standard
+Creamos grupos de naves que van a enfrentarse, cada grupo compuesto o por
+ dos naves de cada fuerza o por tres naves de cada fuerza.
+ En este caso, la división resultante es esta
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+P1: fuerzas del jugador 1 
+\end_layout
+
+\begin_layout Plain Layout
+P2: fuerzas del jugador 2
+\end_layout
+
+\begin_layout Plain Layout
+N: fuerzas neutrales
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+P1 vs P2 vs N
+\end_layout
+
+\begin_layout Itemize
+P1 vs P2 vs N
+\end_layout
+
+\begin_layout Itemize
+P1 vs P2 vs N
+\end_layout
+
+\begin_layout Itemize
+P1 vs P2
+\end_layout
+
+\begin_layout Itemize
+P1
+\end_layout
+
+\begin_layout Standard
+Cada grupo de dos o tres naves enfrentadas son descontadas de las fuerzas
+ de cada jugador.
+ En esta batalla, el jugador 1 gana con una sola nave.
+\end_layout
+
+\begin_layout Standard
+Si aplicamos el procedimiento original a la batalla anterior, notamos que
+ las dos mayores fuerzas son las de los jugadores 1 y 2.
+ El ganador es el jugador 1, porque es el que tiene la mayor fuerza y a
+ sus naves resultantes se calculan substrayendo a las naves de su fuerza,
+ las naves de la fuerza del jugador 2, 
+\begin_inset Formula $5-4=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Todos los casos en los que se enfrenten dos o tres fuerzas siguen el mismo
+ principio.
+ En todos los casos, la fuerza mayor gana la contienda y le son sustraídos
+ el mismo número de naves que las que tenía la segunda mayor fuerza.
+ En caso de empate, el planeta sigue perteneciendo al jugador original,
+ aunque su fuerza se reduce a cero.
+ Este es un detalle importante, porque aunque queden ambas fuerzas a cero,
+ el jugador original sigue conservando su planeta.
+\end_layout
+
+\begin_layout Subsection
+Condiciones de victoria.
+\end_layout
+
+\begin_layout Standard
+Las siguientes condiciones harán que termine el juego.
+\end_layout
+
+\begin_layout Itemize
+Se alcanza el límites de turno.
+ Para evitar partidas eternas, se puede establecer un límite de turnos (segundos
+) por partidas.
+ El ganador es el jugador con la mayor cantidad de naves (tanto en los planetas
+ como en las flotas).
+ Si ambos jugadores tienen exactamente el mismo número de tropas, es un
+ empate.
+\end_layout
+
+\begin_layout Itemize
+Un jugador se queda sin planetas y sin flotas.
+ Cuando esto sucede, el jugador ya no puede emprender ninguna acción (ya
+ no tiene naves que mover).
+ El ganador es el otro jugador.
+\end_layout
+
+\begin_layout Itemize
+Un jugador envía datos no válidos.
+ No se puede ordenar enviar una tropa con más naves de las que se poseen
+ o a planetas que no existen o desde planetas que no pertenecen al jugador.
+ Si el jugador emprende alguna de estas acciones, pierde automáticamente
+ la partida.
+\end_layout
+
+\begin_layout Itemize
+El jugador se 
+\begin_inset Quotes eld
+\end_inset
+
+bloquea
+\begin_inset Quotes erd
+\end_inset
+
+ o devuelve algún error de ejecución (violaciones de segmento,...).
+ En ese caso, el jugador es descalificado y pierde la partida.
+\end_layout
+
+\begin_layout Itemize
+El jugador excede su límite de tiempo sin haber terminado sus decisiones.
+ El jugador debe realizar todas sus operaciones y acciones en menos de 1
+ segundo.
+ De no ser así, el jugador pierde automáticamente la partida.
+\end_layout
+
+\begin_layout Itemize
+El jugador intenta realizar alguna opción no permitida (escritura en un
+ fichero, rastreo o modificaciones en memoria del otro jugador...).
+ En caso de detectar alguna de estas irregularidades, el jugador es descalificad
+o y pierde automáticamente la partida.
+\end_layout
+
+\begin_layout Standard
+Estas dos últimas condiciones de victoria constituyen lo que hemos considerado
+ 
+\begin_inset Quotes eld
+\end_inset
+
+restricciones adiciones
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Restricciones adiciones del problema
+\end_layout
+
+\begin_layout Standard
+Aunque Planet Wars es un RTS
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Real time strategy o estrategia en tiempo real.
+\end_layout
+
+\end_inset
+
+ en el campeonato se convirtió en un juego basado en pseudo-turnos.
+ Los pseudos-turnos son periodos de tiempo (de 1 segundo de duración) en
+ los que se dividen las partidas.
+ Cada pseudo-turno es independiente del anterior, siendo afrontado como
+ 
+\begin_inset Quotes eld
+\end_inset
+
+una nueva partida
+\begin_inset Quotes erd
+\end_inset
+
+ con un estado nuevo del mapa.
+ Esto es debido a que en la competición se añadió también la restricción
+ que imposibilitaba el uso de memoria entre turnos.
+ De esta forma, el bot dispone de un solo segundo de tiempo (discutiremos
+ más adelante la precisión de este concepto temporal) para decidir sus próximas
+ acciones (movimientos de flotas entre planetas) y ordenar que sean cumplidas.
+ En otras palabras, al termino de cada pseudo-turno (o segundo) el bot debe
+ enfrentarse a un mapa desconocido tal y como si fuese un juego nuevo.
+ Esta restricción es la que hace que realmente sea un reto interesante el
+ diseño del bot.
+\end_layout
+
+\begin_layout Standard
+También, se prohíbe expresamente el uso de múltiples procesos o hebras.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diseño de un bot
+\end_layout
+
+\begin_layout Standard
+El entorno del juego lanza el bot en un sandbox 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+un sistema de aislamiento de procesos mediante el cual, se pueden ejecutar
+ distintos programas con seguridad y de manera separada.
+\end_layout
+
+\end_inset
+
+ y se comunica con él mediante salida y entrada estándar
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+En la mayoría de lenguajes de programación, denominados stdin y stdout
+\end_layout
+
+\end_inset
+
+.
+ Se silencia además su salida de error
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+En la mayoría de lenguajes de programación, stderr
+\end_layout
+
+\end_inset
+
+ y se le prohibe la escritura en ficheros.
+ Cada ejecución del bot para cada turno se trata como un nuevo proceso.
+\end_layout
+
+\begin_layout Standard
+Al comienzo de cada turno, el entorno de juego proporciona el estado del
+ mapa a ambos bots.
+ Una vez el estado es enviado, cada bot tiene 1 segundo de tiempo de reloj
+ para recibir el estado del juego, procesarlo y enviar sus órdenes.
+ Los dos bots realizan sus operaciones concurrentemente, aunque no son conscient
+es de las decisiones tomadas por el otro hasta una nueva 
+\begin_inset Quotes eld
+\end_inset
+
+actualización
+\begin_inset Quotes erd
+\end_inset
+
+, es decir, hasta el próximo turno.
+\end_layout
+
+\begin_layout Standard
+La decisión de utilizar el tiempo de reloj en lugar del tiempo de CPU se
+ debe principalmente a las dificultades técnicas para medir en tiempo real
+ el de procesamiento de CPU.
+\end_layout
+
+\begin_layout Section
+GoogleBot
+\end_layout
+
+\begin_layout Standard
+El kit de desarrollo del Google AI Contest incluye un bot de ejemplo, al
+ que denominamos Google.
+ Este bot es bastante simple, pero está diseñado para función bastante bien
+ independientemente de la naturaleza del mapa lo cual le permite ganar a
+ bot que están muy optimizados para un tipo de mapa en concreto.
+ 
+\end_layout
+
+\begin_layout Standard
+Google bot funciona como
+\end_layout
+
+\end_body
+\end_document

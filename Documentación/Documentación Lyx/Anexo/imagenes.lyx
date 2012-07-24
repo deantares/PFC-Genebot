@@ -1,0 +1,994 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/1.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/2.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/3.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/4.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/5.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/6.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/7.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/8.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/9.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/10.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/11.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/12.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/13.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/14.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/15.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/16.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/17.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/18.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/19.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/20.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/21.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/22.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/23.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/24.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/25.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/26.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/27.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/28.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/29.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/30.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/31.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/32.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/33.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/34.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/35.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/36.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/37.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/38.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/39.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/40.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/41.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/42.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/43.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/44.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/45.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/46.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/47.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/48.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/49.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/50.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/51.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/52.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/53.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/54.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/55.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/56.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/57.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/58.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/59.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/60.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/61.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/62.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/63.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/64.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/65.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/66.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/67.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/68.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/69.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/70.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/71.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/72.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/73.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/74.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/75.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/76.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/77.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/78.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/79.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/80.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/81.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/82.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/83.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/84.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/87.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/88.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/89.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/90.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/91.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/92.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/93.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/94.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/95.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/96.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/97.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/98.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Graphics
+	filename maps/minimaps/99.png
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename maps/minimaps/100.png
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

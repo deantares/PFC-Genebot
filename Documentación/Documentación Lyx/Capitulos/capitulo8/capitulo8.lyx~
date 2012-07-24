@@ -1,0 +1,187 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Conclusiones generales
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+minitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este capítulo se recogen los resultados y se resumen las conclusiones
+ a las que se han llegado con este proyecto fin de carrera.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusiones generales
+\end_layout
+
+\begin_layout Standard
+Hay varias conclusiones que a pesar de haber quedado reflejadas en este
+ documento se hacen necesario recopilarlas y ofrecerlas en este apartado.
+\end_layout
+
+\begin_layout Standard
+Se ha demostrado que un algoritmo genético (y por extensión un algoritmo
+ evolutivo) nos permite conseguir optimizar el diseño de un bot.
+ Para ello, es necesario diseñar un bot inicial al que se le pueda parametrizar
+ su comportamiento.
+ Una vez se dispone de un bot que se puede 
+\begin_inset Quotes eld
+\end_inset
+
+optimizar
+\begin_inset Quotes erd
+\end_inset
+
+, hemos hecho uso del algoritmo genético para conseguir optimizar el comportamie
+nto de nuestro bot.
+\end_layout
+
+\begin_layout Standard
+Para que el algoritmo genético nos sea útil para nuestro propósito, tenemos
+ que asegurarnos que los mejores individuos son los que tienen más probabilidade
+s de perpetuar sus cromosomas en el 
+\begin_inset Quotes eld
+\end_inset
+
+tiempo
+\begin_inset Quotes erd
+\end_inset
+
+ o generaciones.
+ Para garantizar esta perpetuidad, debemos favorecer a los individuos que
+ sean mejores.
+ Esta métrica de bondad, denominada fitness, es una de las piezas claves
+ de nuestro trabajo.
+\end_layout
+
+\begin_layout Standard
+Mediante diversos estudios, hemos constatado como el fitness tiene que ser
+ consistente y estable.
+ De no garantizarse estas dos características, nuestro algoritmo genético
+ no llevaria a las mejores.
+ Esto es debido a que un fitness no consistente, o lo que es lo mismo, un
+ fitness que realmente no refleje que un individuo es mejor que otro, favorecerí
+a a invidiuos equivocados en la selección.
+ Igualmente, si el fitness es ruidoso y no se hace ningún control para paliarlo
+ sus efectos, se pueden favorecer constantemente a individuos que no son
+ tan buenos como aparentan, consiguiendo sus victorias fruto del azar.
+\end_layout
+
+\begin_layout Standard
+En definitiva, para poder aplicar un algoritmo genético para optimización
+ de un bot, debemos garantizar que:
+\end_layout
+
+\begin_layout Itemize
+El fitness que elijamos, aunque sea ruidoso, disponga de mecanismos que
+ eviten el favorecer repetidamente a individuos poco estables.
+\end_layout
+
+\begin_layout Itemize
+El fitness que elijamos tiene que ser coherente, es decir, refleja realmente
+ que un individuo es mejor que otro.
+\end_layout
+
+\begin_layout Standard
+Si somos capaces de garantizar estos puntos, podemos garantizar que nuestro
+ algoritmo genético nos proveerá de mejores individuos en cada generación.
+\end_layout
+
+\begin_layout Standard
+Con la ayuda de este mecanismo de optimización y realizando un estudio topológic
+o de los mapas o escenarios de juegos, hemos podido diseñar un bot con comportam
+iento especialista y adaptativo.
+ De no haber constado con un mecanismo que nos permita optimizar el comportamien
+to de nuestro bot (para una situación concreta) no hubiésemos podido realizar
+ el diseño de este bot.
+\end_layout
+
+\begin_layout Standard
+Podemos por tanto concluir que el uso de algoritmos evolutivos para el diseño
+ (y optimización) de bots para juegos resulta acertado.
+\end_layout
+
+\end_body
+\end_document

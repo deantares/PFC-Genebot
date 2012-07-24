@@ -1,0 +1,187 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Estado actual de los conocimientos científicos-técnicos
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+minitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este capítulo se describen el estado actual de los conocimientos científicos-
+técnicos empleados en este proyecto
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Lo que en inglés se conoce como state of the art.
+\end_layout
+
+\end_inset
+
+,.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los videojuegos se han convertido en uno de los sectores de entretenimiento
+ más importantes de la industria.
+ Aunque desde el origen de los videosjuegos los jugadores han ansiado disfrutar
+ de gráficos cada vez más realistas, en los últimos tiempos los jugadores
+ buscan cada vez más enfrentarse a oponentes 
+\begin_inset Quotes eld
+\end_inset
+
+de la máquina
+\begin_inset Quotes erd
+\end_inset
+
+ cada vez más inteligentes y eficaces.
+ En otras palabras, oponentes que se acerquen cada vez más al comportamiento
+ humano.
+\end_layout
+
+\begin_layout Standard
+La mayoria de las investigaciones en el campo de la inteligencia artificial
+ para juegos se han enfocado en juegos relativamente simples como Super
+ Mario, Pac-Man o juegos de conducción,...debido principalmente al número emergente
+ de competiciones sobre estos juegos.
+ Nuestro proyecto fin de carrera, como hemos expuesto en el capítulo anterior,
+ nace gracias a uno de estos campeonatos.
+\end_layout
+
+\begin_layout Standard
+Los juegos de estrategia en tiempo real han estado siempre muy presentes
+ en las exigencias de los jugadores en cuanto a calidad de la inteligencia
+ artificial se refiere.
+ E igualmente han resultado bastante interesantes desde el punto de vista
+ de la investigación.
+ Así no es extraño encontrar trabajos sobre planificación en mundo incierto
+ con información incompleta, aprendizaje, modelado de oponentes, rezonamiento
+ espacio/temporal,...
+\end_layout
+
+\begin_layout Standard
+A pesar de todas estas investigaciones sobre el campo, la mayoría de los
+ juegos de estrategia en tiempo real disponibles en el mercado, los bots
+ estan programados mediantes scripts que han sido previamente programados
+ (por ejemplo, haciendo uso de autómata de estados finitos o de árboles
+ de decisión ).
+ Una vez que el oponente aprende el comportamiento de su oponente, el reto
+ del juego deja de ser interesante.
+\end_layout
+
+\begin_layout Standard
+Los intentos por aplicar técnicas de inteligencia artificial más tradicionales
+ suelen fracasar en este tipo de juegos, principalmente por el gran espacio
+ de búsqueda existente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los videojuegos se han convertido en uno de los sectores más importantes
+ de la industria del entretenimiento
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Prueba de ellos, es que existen juegos con costes de desarrolloso superiores
+ a los de muchas superproducciones de Hollywood.
+ Por ejemplo se estima que el videojuego Star Wars: The old Republic ha
+ tenido un coste de producción de 200 millones de dolares mientras que las
+ últimas películas de la trilogía han tenido un coste de unos 120 millones
+ de dólares cada una.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

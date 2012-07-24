@@ -1,0 +1,792 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\usepackage{fancyhdr}
+\usepackage{amsmath}%%%Macros AMS%%%
+\usepackage{amsthm}%%%Macros AMS para teoremas%%%
+\usepackage{amsfonts}%%%Permite usar fuentes AMS%%%
+\usepackage{amssymb}%%%Para usar simbolos AMS%%%
+\usepackage{shadow}
+\usepackage{indentfirst}
+\linespread{1.5}
+\usepackage{graphicx}
+\usepackage{appendix} 
+\usepackage[colorlinks=true]{hyperref}%De esta forma el PDF sale muy chulo
+\usepackage{graphics}
+\usepackage[Lenny]{fncychap}
+\usepackage{url}
+\pagestyle{fancy}
+\usepackage{extramarks}
+\usepackage[toc]{glossaries}
+\usepackage{pdfpages} % to import PDF pages
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\setlength{\parskip}{1pc}
+%\usepackage[margin=2cm,font=footnotesize,labelfont={sf,bf}]{caption} 
+%ïndice en capítulos
+\usepackage{minitoc}
+\setcounter{minitocdepth}{1} 
+\setlength{\mtcindent}{0pt} 
+\renewcommand{\mtcfont}{\small\bf} 
+\renewcommand{\mtcSfont}{\small\bf} 
+\usepackage{dsfont}
+\floatname{algorithm}{Algoritmo}
+\usepackage{listings}
+\renewcommand{\nomname}{Glosario de términos}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing double
+\use_hyperref false
+\pdf_title "Evolución de IAs Reactivas en el marco de los RTS"
+\pdf_author "Antonio J Fernández Ares"
+\pdf_subject "Proyecto Fin de carrera"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Portada/port.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thepage}{
+\backslash
+roman{page}} 
+\backslash
+setcounter{page}{1}
+\backslash
+dominitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pretolerance=2000 
+\backslash
+tolerance=3000
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\begin_inset Phantom VPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\begin_inset Phantom VPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\begin_inset Phantom VPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\begin_inset Phantom VPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\begin_inset Phantom VPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\begin_inset Phantom VPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\begin_inset Phantom VPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\begin_inset Phantom VPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\begin_inset Phantom VPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\begin_inset Phantom VPhantom
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Evolución de IAs Reactivas en el marco de los RTS
+\series default
+ de Antonio J Fernández Ares, está bajo una licencia Creative Commons Attributio
+n-NonCommercial-NoDerivs 3.0 Unported License.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Varios/3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Varios/Resumen.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Varios/Abstract.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Varios/Agradecimientos.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset nomencl_print
+LatexCommand printnomenclature
+set_width "auto"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList algorithm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+cdpchapter}[1]{
+\backslash
+cleardoublepage
+\backslash
+chapter*{#1}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{fancy}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhf{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[LE,RO]{
+\backslash
+textbf{
+\backslash
+thepage}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[RE]{
+\backslash
+nouppercase{
+\backslash
+leftmark}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[LO]{
+\backslash
+nouppercase{
+\backslash
+rightmark}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+headrulewidth}{0.5pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+footrulewidth}{0pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thepage}{
+\backslash
+arabic{page}} 
+\backslash
+setcounter{page}{1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+INTRODUCCIÓN
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Capitulos/capitulo1/capitulo1.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "Capitulos/capitulo2/capitulo2.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "Capitulos/capitulo3/capitulo3.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "Capitulos/capitulo4/capitulo4.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+SOLUCIONES DE DISEÑO
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Capitulos/capitulo5/capitulo5.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "Capitulos/capitulo6/capitulo6.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "Capitulos/capitulo7/capitulo7.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+CONCLUSIONES
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Capitulos/capitulo8/capitulo8.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "Capitulos/capitulo9/capitulo9.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+\start_of_appendix
+ANEXOS
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Anexo/ANEXO A.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "Anexo/ANEXO B.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "Anexo/ANEXO C.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "Anexo/ANEXO G_min.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "Bibliografía/ex-genebot"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algoritmos Evolutivos: Un enfoque práctico Lourdes Araujo y Carlos Cervigón
+ Editorial: Ra-Ma 
+\end_layout
+
+\begin_layout Standard
+Evolutionary Algorithms in Theory and Practice: Evolution Strategis, Evolutionar
+y Programing, Genetic Algorithms Thomas Back Oxford University Press 
+\end_layout
+
+\begin_layout Standard
+Theorical and Experimental DNA Computation Martyn Amos Springer Verlag 
+\end_layout
+
+\begin_layout Standard
+Evolutionary Algorithms for solving Multi-Objetive Problems Carlos A.
+ Coello, Gary B.
+ Lamont, David A.
+ Van Veldhuizen Springer
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%Nomenclatura
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Varios/Glosario.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

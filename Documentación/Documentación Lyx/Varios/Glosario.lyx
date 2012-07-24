@@ -1,0 +1,414 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 0
+\use_mhchem 0
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "bot"
+description "(abreviatura de robot) Programa informático que realiza funciones muy diversas, imitando el comportamiento humano. En este proyecto, se denomia como bot al programa que es capaz de jugar por si mismos al juego en cuestión. La calidad del bot viene determinada por la capacidad de vencer el juego."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RST"
+description "(real-time strategy game) Juego de estrategia en tiempo real son juegos que requieren que el jugador ponga en práctica sus habilidades de planteamiento y pensamiento para conseguir la victoria."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "algoritmo"
+description "Conjunto secuencia, definido y finito de reglas para obtener un determinado resutlado en la realización de una actividad"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Planet Wars"
+description "Versión simplificada de Galcon, es un juego de estrategia en tiempo real ambientado en el espacio exterior y cuyo objetivo es conquistar todos los planetas del mapa."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "planeta"
+description "(en el juego) Espacio propiedad de un juegador, que genera naves segun su ratio de crecimiento. El objetivo del juego es conquistar todos los planetas enemigos (o dejarle sin naves)"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "flota"
+description "(en el juego) Cualquier conjunto de naves en movimiento en el mapa. Las flotas pertenecen obligatoriamente a un jugador. Entre sus características se encuentra en número de naves (el tamaño de la flota), el planeta de origen y el planeta de destino. Para cada flota en un momento dado, podemos saber cual es la distancia a recorrer en el viaje, así como el número de turnos que faltan para lograr su objetivo."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "enfrentamiento"
+description "(en el juego) El evento que sucede cuando una flota llega a su planeta objetivo."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "turno"
+description "(en el juego) Sucesión de las acciones emprendidas por el entorno del juego: envio del estado, recepción de órdenes, actualización del estado, comprobación de las condiciones de victoria."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "salida"
+description "(en el juego) fase en la que se realizan las órdenes indicadas por los jugadores."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "progreso"
+description "(en el juego) fase en la que las flotas avanzan un turno y se incremente el número de naves de los planetas no neutrales en función de su tasa de crecimiento."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "fuerza"
+description "(en el juego) recuento de todas las naves en flota que han llegado a un planeta y de las naves alojadas en dicho planeta."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "llegada"
+description "(en el simulador) fase encargada de procesar las llegadas de las flotas a su planeta destino."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "victoria"
+description "(en el simulador) condición necesaria para que termine el juego. Incluye tanto condiciones de paradas legales (fin de la partida) como aquellas condiciones que hacen que un jugador sea descalificado, otorgando la victoria al otro jugador."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "GoogleBot"
+description "Bot proporcionado en el kit de desarrollo, diseñado para funcionar bien independientemente de la naturaleza del mapa."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "AresBot"
+description "Primer bot diseñado, que posteriormente seria optimizado para conseguir a Genebot."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Genebot"
+description "Bot creado mediante la parametrización del comportamiento de Aresbot con el fin de emplear un algoritmo genético para su optimización."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "ExGenebot"
+description "Bot creado mediante la unión de varios Genebots, cada uno optimizado para una tipologia de mapa distinta."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Google AI Challenge"
+description "Campeonato de inteligencia artificial, que en el año 2010 propuso como reto el diseño de un bot para jugar a PlanetWars."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Planeta base"
+description "(bot) Planeta que alberga la mayor cantidad de naves de un jugador."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Planeta objetivo"
+description "(bot) Planeta que sera el principal blanco de ataque del bot durante el turno. Se calcula mediante la función de riesgo"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Sacrificio"
+description "(bot) Indica el coste en naves necesario para poder adquirir un nuevo planeta."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Beneficio"
+description "(bot) Indica el beneficio que aporta al jugador la adquisición de un planeta."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Riesgo"
+description "(bot) Ratio entre el sacrificio y el beneficio de un planeta. El objetivo del bot es capturar planetas que minimicen el riesgo."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Colonia"
+description "(bot) Todo planeta de un jugador que no es planeta principal"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Diezmo"
+description "(bot) \"Impuesto\" que debe ofrecer cada colonia al planeta base del jugador durante su turno"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Ataque extra"
+description "(bot) Ataque auxiliar desde las colonias al planeta objetivo realizado en cada turno"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Expansión"
+description "(bot) Ataque con el fin de adquirir un planeta neutral"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Conquista"
+description "(bot) Ataque con el fin de adquirir un planeta en posesión del otro jugador"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Fenotipo"
+description "(GA) Conjunto de soluciones de un problema."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Población"
+description "(GA) Conjunto finito del fenotipo que es sometido al evolucionamiento del algoritmo. Está compuesto por individuos."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Individuo"
+description "(GA) Solución individual única del fenotipo."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Cromosoma"
+description "(GA) Codificación de la información de la solución representada por un individuo. Se representa mediante una cadena de genes."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Gen"
+description "(GA) Cada una de las posiciones dentro de un cromosoma."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Alelo"
+description "(GA) Valor determinado de un gen. En el algoritmo clásico son binarios, aunque pueden tomar otros valores."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Generación"
+description "(GA) Cada una de las transiciones o iteraciones evolutivas en una población."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Selección"
+description "(GA) Mecanismo que favorece la propagación entre generaciones de los mejores individuos."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Evaluación"
+description "(GA) o fitness. Cuantificación de la bot de un individuo en la resolución del problema dado."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Cruce"
+description "(GA)Mecanismo de recombinación de cromosomas para la obtención de un nuevo cromosoma."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Mutación"
+description "(GA) Mecanismo que puede cambiar aleatoriamente el alelo de un gen en el proceso de copia."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Profiler"
+description "Herramienta que ayuda a la investigación del comportamiento de un software."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Algoritmo paralelo"
+description "Algoritmo que se ejecuta en varias unidades de procesamiento de manera simultánea."
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "mastermind"
+description "Es un juego de mesa, de ingenio y reflexión para dos jugadores en el que uno de los jugadores debe acertar el código (de colores) secreto del otro jugador."
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "juego de la vida"
+description "Es un juego basado en un autómata celular que evoluciona en pasos discretos."
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
